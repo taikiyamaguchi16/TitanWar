@@ -3,30 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public struct PlayerActionDesc
-{
-    GameObject target;
-}
-public interface IPlayerAction
-{
-    void StartPlayerAction();
-}
-
-public  class ItemBase : MonoBehaviour,IPlayerAction
-{
-    public delegate void OnCompleteDelegate();
-    public OnCompleteDelegate CompleteHandler;
-
-    protected int bulletNum;
-
+public abstract class ItemBase : MonoBehaviour{
+    //アイテムごとの球数
+    public int bulletNum;
+    //弾の発射レート
+    public float rate;
+    //経過時間
+    protected float elapsedTime;
+    [SerializeField]
+    [Tooltip("弾の速さ")]
+    protected float speed;
+    private void Start()
+    {
+     
+    }
+    //弾切れの処理
     public void OutOfAmmo()
     {
-        Debug.Log("コールバック関数の起動");
-        CompleteHandler?.Invoke();
+        
     }
-    public virtual void StartPlayerAction()
+    public virtual void InPlayerAction()
     {
-        Debug.Log("元のインターフェース実行中");
+        
     }
 
+    public virtual void EndPlayerAction()
+    {
+        
+    }
 }
