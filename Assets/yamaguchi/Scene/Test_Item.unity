@@ -197,9 +197,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22211abf12de9b49ab51422da2c592d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rateTime: 1.1904762
+  dps: 18.858
   bulletNum: 0
-  rate: 0.69
-  speed: 5
+  magazineSize: 0
+  reloadTime: 0
+  rate: 0.84
+  damage: 22.45
+  speed: 4.43
+  headMagnification: 0
   bullet: {fileID: 9005742950744460340, guid: 106ce165703fa6a48b823e91dbf6c170, type: 3}
 --- !u!1 &1815946026
 GameObject:

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class DefaultGun : ItemBase
 {
+    [Header("各アイテムの独自パラメータ")]
     [SerializeField]
     [Tooltip("弾")]
     private GameObject bullet;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +29,7 @@ public class DefaultGun : ItemBase
     public override void InPlayerAction()
     {
         elapsedTime += Time.deltaTime;
-        if(rate<elapsedTime)
+        if(rateTime < elapsedTime)
         {
             Shot();
         }
@@ -53,4 +55,6 @@ public class DefaultGun : ItemBase
         Destroy(newBall, 1.8f);
         elapsedTime = 0f;
     }
+  
+
 }
