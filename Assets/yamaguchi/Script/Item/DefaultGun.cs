@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DefaultGun : ItemBase
+public class DefaultGun : MonoBehaviour, IPlayerAction
 {
+
+    [SerializeField]
+    private BasicItemInformation parameter;
+
     [Header("各アイテムの独自パラメータ")]
     [SerializeField]
     [Tooltip("弾")]
     private GameObject bullet;
-
 
     // Start is called before the first frame update
     void Start()
@@ -26,17 +29,17 @@ public class DefaultGun : ItemBase
         
     }
 
-    public override void InPlayerAction()
+    public  void InPlayerAction()
     {
-        elapsedTime += Time.deltaTime;
-        if(rateTime < elapsedTime)
+        parameter.ElapsedTime += Time.deltaTime;
+        if(parameter.RateTime < parameter.ElapsedTime)
         {
             Shot();
         }
 
     }
 
-    public override void EndPlayerAction()
+    public void EndPlayerAction()
     {
         
     }
@@ -44,16 +47,16 @@ public class DefaultGun : ItemBase
     private void Shot()
     {
         // 上で取得した場所に、"bullet"のPrefabを出現させる
-        GameObject newBall = Instantiate(bullet, transform.position, transform.rotation);
+        GameObject newBall = Instantiate(bullet, transform.GetChild(0).transform.position, transform.rotation);
         // 出現させたボールのforward(z軸方向)
         Vector3 direction = newBall.transform.forward;
         // 弾の発射方向にnewBallのz方向(ローカル座標)を入れ、弾オブジェクトのrigidbodyに衝撃力を加える
-        newBall.GetComponent<Rigidbody>().AddForce(direction * speed, ForceMode.Impulse);
+        newBall.GetComponent<Rigidbody>().AddForce(direction * parameter.Speed, ForceMode.Impulse);
         // 出現させたボールの名前を"bullet"に変更
         newBall.name = bullet.name;
         // 出現させたボールを0.8秒後に消す
         Destroy(newBall, 1.8f);
-        elapsedTime = 0f;
+        parameter.ElapsedTime = 0f;
     }
   
 
