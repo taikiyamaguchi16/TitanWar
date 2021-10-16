@@ -42,7 +42,7 @@ public class ChoicePlayer : MonoBehaviourPunCallbacks
     void ActiveSceneChanged(Scene thisScene, Scene nextScene)
     {
         // 上で取得した場所に、"bullet"のPrefabを出現させる
-        GameObject newBall = Instantiate(spownPlayer,Vector3.zero, transform.rotation);
+        GameObject newBall = PhotonNetwork.Instantiate(spownPlayer.name,Vector3.zero, transform.rotation);
         Debug.Log(nextScene.name);
     }
 }
