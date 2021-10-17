@@ -31,6 +31,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5127662650449595031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5366270594306701856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221e6a37429f2e6469b18b0ae6163be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_controller: 1
+--- !u!114 &4018734218847199783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8133073289631861655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221e6a37429f2e6469b18b0ae6163be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_controller: 2
 --- !u!1001 &6541595420629502120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38,6 +64,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1293268614805165033}
     m_Modifications:
+    - target: {fileID: 1202664287638123144, guid: a5a0b77a3872a7543a058e64a506c833, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372983596981329970, guid: a5a0b77a3872a7543a058e64a506c833, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3032630574604354367, guid: a5a0b77a3872a7543a058e64a506c833, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3695041242570372018, guid: a5a0b77a3872a7543a058e64a506c833, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -82,6 +120,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3695041242570462558, guid: a5a0b77a3872a7543a058e64a506c833, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3695041242570469266, guid: a5a0b77a3872a7543a058e64a506c833, type: 3}
       propertyPath: m_Name
       value: OVRCameraRig
@@ -91,5 +133,15 @@ PrefabInstance:
 --- !u!4 &7606304955454110490 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3695041242570372018, guid: a5a0b77a3872a7543a058e64a506c833, type: 3}
+  m_PrefabInstance: {fileID: 6541595420629502120}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5366270594306701856 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1202664287638123144, guid: a5a0b77a3872a7543a058e64a506c833, type: 3}
+  m_PrefabInstance: {fileID: 6541595420629502120}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8133073289631861655 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3032630574604354367, guid: a5a0b77a3872a7543a058e64a506c833, type: 3}
   m_PrefabInstance: {fileID: 6541595420629502120}
   m_PrefabAsset: {fileID: 0}
