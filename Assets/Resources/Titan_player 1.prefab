@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1293268614805165033}
   - component: {fileID: 2224530330477168511}
+  - component: {fileID: 6913386028955572091}
   m_Layer: 0
   m_Name: Titan_player 1
   m_TagString: Untagged
@@ -50,23 +51,27 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 2585167247241919699}
+  - {fileID: 4544003487159303619}
+  - {fileID: 4026577679367130427}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &5127662650449595031
+--- !u!114 &6913386028955572091
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5366270594306701856}
+  m_GameObject: {fileID: 1293268614805165032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 221e6a37429f2e6469b18b0ae6163be1, type: 3}
+  m_Script: {fileID: 11500000, guid: ab716e82bc76dcd498a5a61cfcdfe8ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_controller: 1
+  cameraList:
+  - {fileID: 7606304955455747270}
 --- !u!114 &4544003487159303619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,6 +88,19 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &5127662650449595031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5366270594306701856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221e6a37429f2e6469b18b0ae6163be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_controller: 1
 --- !u!114 &4018734218847199783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +165,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3695041242569784430, guid: a5a0b77a3872a7543a058e64a506c833, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3695041242570372018, guid: a5a0b77a3872a7543a058e64a506c833, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -204,6 +226,11 @@ PrefabInstance:
 --- !u!4 &7606304955454110490 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3695041242570372018, guid: a5a0b77a3872a7543a058e64a506c833, type: 3}
+  m_PrefabInstance: {fileID: 6541595420629502120}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &7606304955455747270 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3695041242569784430, guid: a5a0b77a3872a7543a058e64a506c833, type: 3}
   m_PrefabInstance: {fileID: 6541595420629502120}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8801971432496507034 stripped
