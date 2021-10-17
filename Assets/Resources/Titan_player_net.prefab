@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2224530330477168511}
   - component: {fileID: 4852144924057985202}
   m_Layer: 0
-  m_Name: Titan_player 1
+  m_Name: Titan_player_net
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
