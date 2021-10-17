@@ -45,11 +45,12 @@ public class PlayerMove : MonoBehaviourPunCallbacks
         if (photonView.IsMine)
         {
             Player owner = photonView.Owner;
+
+            cam = GameObject.FindGameObjectWithTag("MainCamera");
+            cam.transform.parent = this.transform; 
+            x = cam.transform.localEulerAngles.x;
+            cam.transform.position = transform.Find("Main Camera Pos").transform.position;
         }
-        cam = GameObject.FindGameObjectWithTag("MainCamera");
-        cam.transform.parent = this.transform; ;
-        x = cam.transform.localEulerAngles.x;
-        cam.transform.position = transform.Find("Main Camera Pos").transform.position;
     }
 
     // Update is called once per frame
