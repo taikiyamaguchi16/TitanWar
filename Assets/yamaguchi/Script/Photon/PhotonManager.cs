@@ -35,7 +35,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        PhotonNetwork.NickName = "Player";
+       // PhotonNetwork.NickName = "Player";
         PhotonNetwork.ConnectUsingSettings();
     }
 
@@ -48,15 +48,16 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     // ランダムで参加できるルームが存在しないなら、新規でルームを作成する
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        // ルームの参加人数を2人に設定する
+        // ルームの参加人数を4人に設定する
         var roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 4;
 
-        PhotonNetwork.CreateRoom(null, roomOptions);
+        PhotonNetwork.CreateRoom("room1", roomOptions);
     }
 
     public override void OnJoinedRoom()
     {
+        Debug.Log("ルームに参加");
         if (PhotonNetwork.IsMasterClient)
         {
             //PhotonNetwork.CurrentRoom.SetStartTime(PhotonNetwork.ServerTimestamp);
