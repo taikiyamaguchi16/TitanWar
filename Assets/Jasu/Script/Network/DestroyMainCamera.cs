@@ -4,20 +4,14 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class PhotonCameraCheck : MonoBehaviourPunCallbacks
-{ 
-    [SerializeField]
-    List<Camera> cameraList = new List<Camera>();
-
+public class DestroyMainCamera : MonoBehaviourPunCallbacks
+{
     // Start is called before the first frame update
     void Start()
     {
         if (photonView.IsMine)
         {
-            foreach(var camera in cameraList)
-            {
-                camera.enabled = true;
-            }
+            Destroy(Camera.main.gameObject);
         }
     }
 
