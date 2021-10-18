@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PlayerJump : MonoBehaviour
+using Photon.Pun;
+using Photon.Realtime;
+public class PlayerJump : MonoBehaviourPunCallbacks
 {
     public GameObject Player;
     private Rigidbody PlayerRigid;//PlayerオブジェクトのRigidbobyを保管する
@@ -34,19 +35,24 @@ public class PlayerJump : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (photonView.IsMine)
         {
-            isJump = false;
-
-            if (Input.GetKey(KeyCode.Space))
+            if (collision.gameObject.tag == "Ground")
             {
-                PlayerRigid.AddForce(transform.up * Upspeed);
-                //PlayerRigid.AddForce(transform.forward * Upspeed);
+                isJump = false;
+
+
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    PlayerRigid.AddForce(transform.up * Upspeed);
+                    //PlayerRigid.AddForce(transform.forward * Upspeed);
+                }
+
             }
-        }
-        else
-        {
-            isJump = true;
+            else
+            {
+                isJump = true;
+            }
         }
     }
 

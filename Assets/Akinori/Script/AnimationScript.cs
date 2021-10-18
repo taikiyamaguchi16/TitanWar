@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class AnimationScript : MonoBehaviour
+using Photon.Pun;
+using Photon.Realtime;
+public class AnimationScript : MonoBehaviourPunCallbacks
 {
     private Animator animator;
 
@@ -17,14 +18,16 @@ public class AnimationScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (Input.GetKey(KeyCode.W))
+        if (photonView.IsMine)
         {
-            this.animator.SetBool(key_isRun, true);
-        }
-        else
-        {
-            this.animator.SetBool(key_isRun, false);
+            if (Input.GetKey(KeyCode.W))
+            {
+                this.animator.SetBool(key_isRun, true);
+            }
+            else
+            {
+                this.animator.SetBool(key_isRun, false);
+            }
         }
     }
 }
