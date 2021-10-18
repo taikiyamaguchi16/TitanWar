@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 8646478882258948641}
   - component: {fileID: 4260205402970185126}
   - component: {fileID: -3687133061988280071}
+  - component: {fileID: 7580745055930296309}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -370,6 +371,23 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
+--- !u!114 &7580745055930296309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6685451774579451130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_allowOffhandGrab: 1
+  m_snapPosition: 0
+  m_snapOrientation: 0
+  m_snapOffset: {fileID: 0}
+  m_grabPoints: []
 --- !u!1 &6685451775430311033
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,7 +470,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
 --- !u!114 &6685451775430311035
 MonoBehaviour:
   m_ObjectHideFlags: 0
