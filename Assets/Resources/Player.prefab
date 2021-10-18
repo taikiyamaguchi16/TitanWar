@@ -135,16 +135,12 @@ GameObject:
   - component: {fileID: 6685451774579451132}
   - component: {fileID: 6685451774579451120}
   - component: {fileID: 6685451774579451123}
-  - component: {fileID: 6685451774579451133}
-  - component: {fileID: 6685451774579451122}
   - component: {fileID: 6685451774579451125}
   - component: {fileID: 6685451774579451124}
   - component: {fileID: 6685451774579451127}
   - component: {fileID: 8646478882258948641}
   - component: {fileID: 4260205402970185126}
-  - component: {fileID: 449980839960518143}
-  - component: {fileID: 6756043679222111980}
-  - component: {fileID: -795359621417876908}
+  - component: {fileID: -3687133061988280071}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -264,48 +260,6 @@ MonoBehaviour:
   Camera: {fileID: 0}
   speed: 5
   sensityvity: 2
---- !u!114 &6685451774579451133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6685451774579451130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
---- !u!114 &6685451774579451122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6685451774579451130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents:
-  - {fileID: 6685451774579451133}
-  - {fileID: 4260205402970185126}
-  - {fileID: 449980839960518143}
-  - {fileID: -795359621417876908}
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!114 &6685451774579451125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,10 +325,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 6685451774579451133}
   - {fileID: 4260205402970185126}
-  - {fileID: 449980839960518143}
-  - {fileID: -795359621417876908}
+  - {fileID: -3687133061988280071}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -394,7 +346,7 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!114 &449980839960518143
+--- !u!114 &-3687133061988280071
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -410,43 +362,14 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: isRun
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: isWalk
   m_SynchronizeLayers:
-  - SynchronizeType: 0
+  - SynchronizeType: 1
     LayerIndex: 0
---- !u!114 &6756043679222111980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6685451774579451130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ead9f9a0c206da041a795c00c19f0475, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isOffline: 1
---- !u!114 &-795359621417876908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6685451774579451130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 0
-  m_TeleportEnabled: 0
-  m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &6685451775430311033
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,6 +452,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 1
 --- !u!114 &6685451775430311035
 MonoBehaviour:
   m_ObjectHideFlags: 0
