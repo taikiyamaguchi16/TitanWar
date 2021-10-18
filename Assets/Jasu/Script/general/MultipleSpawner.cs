@@ -77,4 +77,9 @@ public class MultipleSpawner : MonoBehaviour
         }
         return null;
     }
+
+    public List<SpawnInfo> GetSpawnInfoList()
+    {
+        return spawnList;
+    }
 }

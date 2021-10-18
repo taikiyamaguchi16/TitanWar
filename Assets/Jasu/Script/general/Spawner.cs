@@ -117,4 +117,9 @@ public class Spawner : MonoBehaviour
                 break;
         }
     }
+
+    public SpawnInfo GetSpawnInfo()
+    {
+        return spawnInfo;
+    }
 }
