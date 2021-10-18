@@ -130,19 +130,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_controller: 2
---- !u!114 &8378786246609263510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8133073289631861655}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9ce1144d44f9db4cbdae701ab5efdc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colliderList: []
 --- !u!114 &2820081643529496273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,6 +143,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_colliders: []
+--- !u!114 &8378786246609263510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8133073289631861655}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ce1144d44f9db4cbdae701ab5efdc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colliderList: []
 --- !u!1001 &7745175832174921260
 PrefabInstance:
   m_ObjectHideFlags: 0

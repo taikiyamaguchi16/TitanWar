@@ -17,6 +17,8 @@ public class HandCollider : MonoBehaviour
         {
             c.isTrigger = true;
         }
+
+        Debug.Log("奪取");
     }
 
     // Start is called before the first frame update
