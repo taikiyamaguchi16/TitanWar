@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class DefaultGun : MonoBehaviour, IPlayerAction
+public class DefaultGun : MonoBehaviourPunCallbacks, IPlayerAction
 {
 
     [SerializeField]
@@ -25,7 +25,8 @@ public class DefaultGun : MonoBehaviour, IPlayerAction
     {
         if(Input.GetKey(KeyCode.Return))
         {
-            InPlayerAction();
+            if(photonView.IsMine)
+                InPlayerAction();
         }
         
     }
@@ -35,7 +36,7 @@ public class DefaultGun : MonoBehaviour, IPlayerAction
         parameter.ElapsedTime += Time.deltaTime;
         if(parameter.RateTime < parameter.ElapsedTime)
         {
-            Shot();
+            photonView.RPC(nameof(Shot), RpcTarget.All);
         }
 
     }
@@ -45,6 +46,7 @@ public class DefaultGun : MonoBehaviour, IPlayerAction
         
     }
 
+    [PunRPC]
     private void Shot()
     {
         // 上で取得した場所に、"bullet"のPrefabを出現させる
@@ -56,8 +58,7 @@ public class DefaultGun : MonoBehaviour, IPlayerAction
         newBall.GetComponent<Rigidbody>().AddForce(direction * parameter.Speed, ForceMode.Impulse);
         // 出現させたボールの名前を"bullet"に変更
         newBall.name = bullet.name;
-        // 出現させたボールを0.8秒後に消す
-        Destroy(newBall, 1.8f);
+        
         parameter.ElapsedTime = 0f;
     }
   
