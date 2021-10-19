@@ -21,6 +21,10 @@ public class ItemBox : MonoBehaviour
     float m_time = 0f;//時間を記録する小数も入る変数.
     private bool m_isRespown = true;    //生成出来るか？（生成出来ない：false ｜生成出来る：true）
 
+    //
+    private GameObject respawnItem = null; 
+
+
 
     private bool m_isHitOther = false;
     //ゆくゆくはレア度ごとに配列オブジェクトを分ける。
@@ -79,12 +83,15 @@ public class ItemBox : MonoBehaviour
         }
 
         //子供がいなければ創る準備
-        int childCount = this.gameObject.transform.childCount;
-        if (childCount == 0 && !m_isHitOther)
+        //int childCount = this.gameObject.transform.childCount;
+        //if (childCount == 0 && !m_isHitOther)
+        //{
+        //    m_isRespown = true;
+        //}
+        if (respawnItem == null && !m_isHitOther)
         {
             m_isRespown = true;
         }
-
 
     }
 
@@ -118,7 +125,7 @@ public class ItemBox : MonoBehaviour
     //==================================================
     private void RarityChoiceItem(Item.ITEMRATE itemrate)
     {
-        GameObject obj;
+        //GameObject obj;
         int idx = 0;
         switch (itemrate)
         {
@@ -129,15 +136,15 @@ public class ItemBox : MonoBehaviour
                 {
                     if (PhotonNetwork.IsMasterClient)
                     {
-                       
-                        obj = (GameObject)PhotonNetwork.InstantiateRoomObject(normalPass[idx], new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
-                        obj.transform.parent = transform;
+
+                        respawnItem = (GameObject)PhotonNetwork.InstantiateRoomObject(normalPass[idx], new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
+                        //obj.transform.parent = transform;
                     }
                 }
                 else
                 {
-                    obj =(GameObject)Instantiate(normalItem[idx], new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
-                    obj.transform.parent = transform;
+                    respawnItem = (GameObject)Instantiate(normalItem[idx], new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
+                    //respawnItem.transform.parent = transform;
                 }
                 Debug.Log("NORMAL");
                 break;
@@ -147,14 +154,14 @@ public class ItemBox : MonoBehaviour
                 {
                     if (PhotonNetwork.IsMasterClient)
                     {
-                        obj = (GameObject)PhotonNetwork.InstantiateRoomObject(rarePass[idx], new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
-                        obj.transform.parent = transform;
+                        respawnItem = (GameObject)PhotonNetwork.InstantiateRoomObject(rarePass[idx], new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
+                        //respawnItem.transform.parent = transform;
                     }
                 }
                 else
                 {
-                    obj = (GameObject)Instantiate(rareItem[idx], new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
-                    obj.transform.parent = transform;
+                    respawnItem = (GameObject)Instantiate(rareItem[idx], new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
+                    //respawnItem.transform.parent = transform;
                 }
                 Debug.Log("RARE");
                 break;
@@ -164,14 +171,14 @@ public class ItemBox : MonoBehaviour
                 {
                     if (PhotonNetwork.IsMasterClient)
                     {
-                        obj = (GameObject)PhotonNetwork.InstantiateRoomObject(superPass[idx], new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
-                        obj.transform.parent = transform;
+                        respawnItem = (GameObject)PhotonNetwork.InstantiateRoomObject(superPass[idx], new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
+                        //respawnItem.transform.parent = transform;
                     }
                 }
                 else
                 {
-                    obj = (GameObject)Instantiate(superItem[idx], new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
-                    obj.transform.parent = transform;
+                    respawnItem = (GameObject)Instantiate(superItem[idx], new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
+                    //obj.transform.parent = transform;
                 }
                 Debug.Log("SR");
                 break;
