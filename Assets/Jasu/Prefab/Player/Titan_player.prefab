@@ -91,7 +91,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handCollider: {fileID: 8795237097841235951}
-  colliders: []
 --- !u!114 &8795237097841235951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,7 +136,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handCollider: {fileID: 2820081643529496273}
-  colliders: []
 --- !u!1001 &7745175832174921260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -263,27 +261,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4213856680055592002, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
       propertyPath: m_SynchronizeLayers.Array.data[0].SynchronizeType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4213856680055592002, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
       propertyPath: m_SynchronizeLayers.Array.data[1].SynchronizeType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4213856680055592002, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
       propertyPath: m_SynchronizeLayers.Array.data[2].SynchronizeType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4213856680055592002, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
       propertyPath: m_SynchronizeParameters.Array.data[0].SynchronizeType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4213856680055592002, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
       propertyPath: m_SynchronizeParameters.Array.data[1].SynchronizeType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4213856680055592002, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
       propertyPath: m_SynchronizeParameters.Array.data[2].SynchronizeType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5028188403285234443, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
       propertyPath: m_LocalScale.x
@@ -311,27 +309,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5475114530677482211, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
       propertyPath: m_SynchronizeLayers.Array.data[0].SynchronizeType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5475114530677482211, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
       propertyPath: m_SynchronizeLayers.Array.data[1].SynchronizeType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5475114530677482211, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
       propertyPath: m_SynchronizeLayers.Array.data[2].SynchronizeType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5475114530677482211, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
       propertyPath: m_SynchronizeParameters.Array.data[0].SynchronizeType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5475114530677482211, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
       propertyPath: m_SynchronizeParameters.Array.data[1].SynchronizeType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5475114530677482211, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
       propertyPath: m_SynchronizeParameters.Array.data[2].SynchronizeType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5944545093438800230, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
       propertyPath: m_Enabled
