@@ -8,24 +8,23 @@ using Photon.Realtime;
 public class ColliderPhotonSet : MonoBehaviour
 {
     [SerializeField]
-    List<Collider> colliderList = new List<Collider>();
+    HandCollider handCollider;
 
     // Start is called before the first frame update
     void Start()
     {
-        Collider[] colliders =
-            this.GetComponentsInChildren<Collider>().Where(childCollider => !childCollider.isTrigger).ToArray();
-        colliderList.AddRange(colliders);
-
-        foreach (var col in colliderList)
+        if (handCollider.GetDetailedColliderEnable())
         {
-            col.gameObject.AddComponent<PhotonTransformView>();
+            Collider[] colliders = handCollider.GetHandDetailedColliders();
+            foreach (var col in colliders)
+            {
+                col.gameObject.AddComponent<PhotonTransformView>();
+            }
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (handCollider.GetSimpleColliderEnable())
+        {
+            handCollider.GetHandSimpleCollider().gameObject.AddComponent<PhotonTransformView>();
+        }
     }
 }

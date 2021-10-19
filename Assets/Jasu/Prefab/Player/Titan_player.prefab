@@ -78,6 +78,20 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &159219563787936267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5366270594306701856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ce1144d44f9db4cbdae701ab5efdc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handCollider: {fileID: 8795237097841235951}
+  colliders: []
 --- !u!114 &8795237097841235951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,7 +104,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c13cd3509c3d640aef5891ce2243d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_colliders: []
+  simpleCollider: {fileID: 5173940354659250397}
+  colliders: []
+  simpleColliderEnable: 1
+  detailedColliderEnable: 0
 --- !u!114 &2820081643529496273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,7 +120,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c13cd3509c3d640aef5891ce2243d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_colliders: []
+  simpleCollider: {fileID: 5537964867976773593}
+  colliders: []
+  simpleColliderEnable: 1
+  detailedColliderEnable: 0
+--- !u!114 &2941510592700757900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8133073289631861655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ce1144d44f9db4cbdae701ab5efdc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handCollider: {fileID: 2820081643529496273}
+  colliders: []
 --- !u!1001 &7745175832174921260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113,7 +147,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 12888077902879178, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212621826308226352, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
       propertyPath: m_RootOrder
@@ -251,6 +285,30 @@ PrefabInstance:
       propertyPath: m_SynchronizeParameters.Array.data[2].SynchronizeType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5028188403285234443, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5028188403285234443, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5028188403285234443, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5327538099004216883, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5327538099004216883, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5327538099004216883, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5475114530677482211, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
       propertyPath: m_SynchronizeLayers.Array.data[0].SynchronizeType
       value: 1
@@ -339,6 +397,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &5173940354659250397 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3220605026246326001, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
+  m_PrefabInstance: {fileID: 7745175832174921260}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &965493201495592241 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7357327707598293789, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
@@ -366,3 +429,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &5537964867976773593 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 2857157752514623989, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
+  m_PrefabInstance: {fileID: 7745175832174921260}
+  m_PrefabAsset: {fileID: 0}
