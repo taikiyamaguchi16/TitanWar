@@ -140,7 +140,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c13cd3509c3d640aef5891ce2243d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_colliders: []
+  simpleCollider: {fileID: 0}
+  colliders: []
+  simpleColliderEnable: 0
+  detailedColliderEnable: 1
 --- !u!1001 &412233659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -411,7 +414,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c13cd3509c3d640aef5891ce2243d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_colliders: []
+  simpleCollider: {fileID: 0}
+  colliders: []
+  simpleColliderEnable: 0
+  detailedColliderEnable: 1
 --- !u!1001 &1907088022
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -493,7 +499,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2040238458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,6 +544,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1126152926623979034, guid: 763dd9a6af2dbd74a9f87c8ad3389478, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1390013371256124270, guid: 763dd9a6af2dbd74a9f87c8ad3389478, type: 3}
       propertyPath: sceneViewId
       value: 3
@@ -592,6 +602,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2046837322597574649, guid: 763dd9a6af2dbd74a9f87c8ad3389478, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2686141042420679581, guid: 763dd9a6af2dbd74a9f87c8ad3389478, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
