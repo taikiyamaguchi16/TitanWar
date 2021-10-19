@@ -28,7 +28,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 272472407940656505}
-  - {fileID: 3833142452393327890}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -73,9 +72,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3833142452393327890}
   - component: {fileID: 1044080631151198832}
-  - component: {fileID: 820855654944935199}
   m_Layer: 0
-  m_Name: Collider
+  m_Name: SimpleCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,11 +86,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2513425698603986251}
-  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: -0.1, y: -0.05, z: -0.06}
+  m_LocalRotation: {x: 0.12278778, y: -0.1227878, z: -0.6963643, w: 0.6963642}
+  m_LocalPosition: {x: -0.031, y: 0.04, z: -0.016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7720160786246296242}
+  m_Father: {fileID: 272472407940656505}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
 --- !u!65 &1044080631151198832
@@ -106,24 +104,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.2, z: 0.3}
+  m_Size: {x: 0.05, y: 0.1, z: 0.15}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &820855654944935199
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2513425698603986251}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &2867916772587532633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -137,15 +119,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2595453452932029472, guid: ac5940c98ead0e4429cfcb13fd31f744, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2595453452932029472, guid: ac5940c98ead0e4429cfcb13fd31f744, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2595453452932029472, guid: ac5940c98ead0e4429cfcb13fd31f744, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2595453452932029472, guid: ac5940c98ead0e4429cfcb13fd31f744, type: 3}
       propertyPath: m_LocalPosition.x

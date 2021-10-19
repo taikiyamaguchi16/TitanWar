@@ -6,19 +6,28 @@ using System.Linq;
 public class HandCollider : MonoBehaviour
 {
     [SerializeField]
-    Collider[] m_colliders = null;
+    Collider simpleCollider;
+
+    [SerializeField]
+    Collider[] colliders = null;
+
+    [SerializeField]
+    bool simpleColliderEnable = false;
+
+    [SerializeField]
+    bool detailedColliderEnable = true;
 
     bool firstUpdate = false;
 
     void Awake()
     {
-        m_colliders = this.GetComponentsInChildren<Collider>().Where(childCollider => !childCollider.isTrigger).ToArray();
-        foreach (var c in m_colliders)
+        colliders = this.GetComponentsInChildren<Collider>().Where(childCollider => !childCollider.isTrigger).ToArray();
+        foreach (var c in colliders)
         {
             c.isTrigger = true;
         }
 
-        Debug.Log("奪取");
+        //Debug.Log("コライダー奪取");
     }
 
     // Start is called before the first frame update
@@ -32,12 +41,35 @@ public class HandCollider : MonoBehaviour
     {
         if (firstUpdate)
         {
-            foreach (var c in m_colliders)
+            foreach (var c in colliders)
             {
                 c.isTrigger = false;
-                c.enabled = true;
+                c.enabled = detailedColliderEnable;
             }
             firstUpdate = false;
+            
+            simpleCollider.isTrigger = false;
+            simpleCollider.enabled = simpleColliderEnable;
         }
+    }
+
+    public Collider GetHandSimpleCollider()
+    {
+        return simpleCollider;
+    }
+
+    public bool GetSimpleColliderEnable()
+    {
+        return simpleColliderEnable;
+    }
+
+    public Collider[] GetHandDetailedColliders()
+    {
+        return colliders;
+    }
+
+    public bool GetDetailedColliderEnable()
+    {
+        return detailedColliderEnable;
     }
 }
