@@ -14,13 +14,14 @@ public class PlayerMove : MonoBehaviourPunCallbacks
     public float sensityvity = 1;
     bool cursorLock;
 
-    float accel = 1;
+    public float accel = 1;
     float x;
     Rigidbody rb;
 
-    bool Crouching;
+    bool isCrouching;
     GameObject cam;
-
+    Vector3 crouchCameraPos;
+    Vector3 cameraPos;
     //[SerializeField]
     //float DashSpeed;
     //[SerializeField]
@@ -28,7 +29,7 @@ public class PlayerMove : MonoBehaviourPunCallbacks
     //[SerializeField]
     //float WalkSpeed;
     //[SerializeField]
-    //float CrouchingSpeed;
+    //float isCrouchingSpeed;
     //[SerializeField]
     // Use this for initialization
     void Start()
@@ -49,7 +50,9 @@ public class PlayerMove : MonoBehaviourPunCallbacks
             cam = GameObject.FindGameObjectWithTag("MainCamera");
             cam.transform.parent = this.transform; 
             x = cam.transform.localEulerAngles.x;
-            cam.transform.position = transform.Find("Main Camera Pos").transform.position;
+            cam.transform.position = transform.Find("MainCameraPos").transform.position;
+            cameraPos = transform.Find("MainCameraPos").transform.position;
+            crouchCameraPos = transform.Find("CrouchCameraPos").transform.position;
         }
     }
 
@@ -72,16 +75,28 @@ public class PlayerMove : MonoBehaviourPunCallbacks
             Vector3 dir1 = new Vector3(Mathf.Sin(angleDir), 0, Mathf.Cos(angleDir));
             Vector3 dir2 = new Vector3(-Mathf.Cos(angleDir), 0, Mathf.Sin(angleDir));
 
-            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) && !isCrouching)
             {
-                if (accel < 1.3f)
+                if (accel <= 1.5f)
+                {                   
+                    accel = 1.5f;
+                }
+                else
                 {
-                    accel += 0.1f;
+                    accel -= Time.deltaTime;
+                }
+                if (Input.GetKeyDown(KeyCode.C) )
+                {
+                    accel = 3.0f;
                 }
             }
             else
             {
-                accel = 1f;
+                accel -= Time.deltaTime;
+                if (accel <= 1)
+                {
+                    accel = 1;
+                }
             }
 
             // if (!transform.GetComponent<PlayerJump>().GetIsJump())
@@ -104,32 +119,34 @@ public class PlayerMove : MonoBehaviourPunCallbacks
                 }
             }
 
-            //if (Input.GetKeyDown(KeyCode.C) && Crouching == false)
-            //{
-            //    Crouching = true;
-            //}
-            //else if (Input.GetKeyDown(KeyCode.C) && Crouching == true)
-            //{
-            //    Crouching = false;
-            //}
+            if (Input.GetKeyDown(KeyCode.C) && isCrouching == false)
+            {
+                
+                isCrouching = true;
+                
+            }
+            else if (Input.GetKeyDown(KeyCode.C) && isCrouching == true)
+            {
+                isCrouching = false;
+            }
 
-            //if (Crouching == true)
-            //{
-            //    Camera.transform.position = new Vector3(transform.position.x, transform.position.y + 0.619f, transform.position.z);
-            //    speed = CrouchingSpeed;
-            //}
-            //else
-            //{
-            //    Camera.transform.position = new Vector3(transform.position.x, transform.position.y + 1.238f, transform.position.z);
-            //}
+            if (isCrouching == true)
+            {
+                cam.transform.position = transform.Find("CrouchCameraPos").transform.position;
 
+            }
+            else
+            {
+                cam.transform.position = transform.Find("MainCameraPos").transform.position;
+            }
+           
 
             //////////////////////////////////////
             //if (Input.GetKey(KeyCode.LeftShift))
             //{
             //    speed = DashSpeed;
             //}
-            //else if (Crouching == false)
+            //else if (isCrouching == false)
             //{
             //    speed = WalkSpeed;
             //}
