@@ -17,6 +17,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         }
         else
         {
+            Debug.Log("オフラインモード");
             PhotonNetwork.OfflineMode = true;
         }
     }
@@ -35,33 +36,21 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-       // PhotonNetwork.NickName = "Player";
+        //PhotonNetwork.NickName = "Player";
         PhotonNetwork.ConnectUsingSettings();
     }
 
     public override void OnConnectedToMaster()
     {
-        // ランダムなルームに参加する
-        PhotonNetwork.JoinRandomRoom();
-    }
-
-    // ランダムで参加できるルームが存在しないなら、新規でルームを作成する
-    public override void OnJoinRandomFailed(short returnCode, string message)
-    {
-        // ルームの参加人数を4人に設定する
-        var roomOptions = new RoomOptions();
-        roomOptions.MaxPlayers = 4;
-
-        PhotonNetwork.CreateRoom("room1", roomOptions);
+        if (isOffline)
+            PhotonNetwork.JoinOrCreateRoom("Room", new RoomOptions(), TypedLobby.Default);
+        else
+            PhotonNetwork.JoinLobby();
     }
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("ルームに参加");
-        if (PhotonNetwork.IsMasterClient)
-        {
-            //PhotonNetwork.CurrentRoom.SetStartTime(PhotonNetwork.ServerTimestamp);
-        }
-        //SceneManager.LoadScene("Test_Item");
+        var position = new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f));
+        //PhotonNetwork.Instantiate("Avatar", position, Quaternion.identity);
     }
 }
