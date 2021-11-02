@@ -5,75 +5,88 @@ using Photon.Pun;
 using Photon.Realtime;
 public class PlayerJump : MonoBehaviourPunCallbacks
 {
-    public GameObject Player;
-    private Rigidbody PlayerRigid;//PlayerオブジェクトのRigidbobyを保管する
-    public float Upspeed;　　　　//ジャンプのスピード
+    public Rigidbody rb;
+    public float JumpPower;
+    //接地判定
+    public bool OnGround { get; set; }//追記
 
-    private bool isJumping;
-
-    // Use this for initialization
-    void Start()
+    //追記
+    private void Start()
     {
-        isJumping = false;
-        PlayerRigid = Player.GetComponent<Rigidbody>();
-
+        OnGround = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    //RigitbodyをいじるためFixedUpdateで処理を行う
+    private void FixedUpdate()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    //上にジャンプする。
-        //    PlayerRigid.AddForce(transform.up * Upspeed);
-
-
-
-        //}
-        if (isJumping)
+        //接地していればジャンプできる
+        if (Input.GetKey(KeyCode.Space) && OnGround)//追記
         {
-            //if (Input.GetKey(KeyCode.Space))
-            //{
-            //    PlayerRigid.AddForce(transform.up * (Upspeed * 0.01f));
-            //    PlayerRigid.AddForce(transform.forward * (Upspeed * 0.01f));
-            //}
+            Debug.Log("Jump");
+            rb.velocity = transform.up * JumpPower;
+          //  rb.AddForce(transform.up * JumpPower);
+            //ジャンプした瞬間接地判定を解除
+            OnGround = false;//追記
         }
     }
 
-    private void OnCollisionStay(Collision collision)
-    {
-        if (photonView.IsMine)
-        {
-            if (collision.gameObject.tag == "Ground")
-            {
-                isJumping = false;
 
 
-                if (Input.GetKey(KeyCode.Space))
-                {
-                    isJumping = true;
-                    PlayerRigid.AddForce(transform.up * Upspeed);
-                    //PlayerRigid.AddForce(transform.forward * Upspeed);
-                    if (Input.GetKey(KeyCode.W))
-                    {
-                        PlayerRigid.AddForce(transform.forward * Upspeed);
-                    }
-                    if (Input.GetKey(KeyCode.S))
-                    {
-                        PlayerRigid.AddForce(-transform.forward * (Upspeed / 2));
-                    }
-                }
+    //public GameObject Player;
+    //private Rigidbody PlayerRigid;//PlayerオブジェクトのRigidbobyを保管する
+    //public float Upspeed;　　　　//ジャンプのスピード
 
-            }
-            //else
-            //{
-            //    isJumping = true;
-            //}
-        }
-    }
+    //private bool isJump;
 
-    public bool GetIsJump()
-    {
-        return isJumping;
-    }
+    //// Use this for initialization
+    //void Start()
+    //{
+    //    isJump = false;
+    //    Player = this.gameObject;
+    //    PlayerRigid = Player.GetComponent<Rigidbody>();
+
+    //}
+
+    //// Update is called once per frame
+    //void Update()
+    //{
+    //    //if (Input.GetKeyDown(KeyCode.Space))
+    //    //{
+    //    //    //上にジャンプする。
+    //    //    PlayerRigid.AddForce(transform.up * Upspeed);
+
+
+
+    //    //}
+
+    //}
+
+    //private void OnCollisionStay(Collision collision)
+    //{
+    //    if (photonView.IsMine)
+    //    {
+    //        if (collision.gameObject.tag == "Ground")
+    //        {
+    //            isJump = false;
+
+
+    //            if (Input.GetKey(KeyCode.Space))
+    //            {
+    //                PlayerRigid.AddForce(transform.up * Upspeed);
+    //                //this.transform.position += (this.transform.up * Time.deltaTime);
+    //                //PlayerRigid.AddForce(transform.forward * Upspeed);
+    //            }
+
+    //        }
+    //        else
+    //        {
+    //            isJump = true;
+    //        }
+    //    }
+    //}
+
+    //public bool GetIsJump()
+    //{
+    //    return isJump;
+    //}
 }
