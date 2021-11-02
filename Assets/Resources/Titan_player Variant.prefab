@@ -12,6 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ccbfd275a008954db99cc13fd2411a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9066601290962766408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6556550133934684015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba0fdb3a0e4b094882321bfbf9b5b92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 7490073105046332740}
 --- !u!1001 &978775661574304785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21,7 +34,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1293268614805165032, guid: 029cdeef26027ef4a8f2dd74900465cf, type: 3}
       propertyPath: m_Name
-      value: Titan_player Variant
+      value: Titan_Player Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1293268614805165033, guid: 029cdeef26027ef4a8f2dd74900465cf, type: 3}
       propertyPath: m_RootOrder
@@ -71,10 +84,32 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4468516001884086788, guid: 029cdeef26027ef4a8f2dd74900465cf, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4468516001884086788, guid: 029cdeef26027ef4a8f2dd74900465cf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324788874667188278, guid: 029cdeef26027ef4a8f2dd74900465cf, type: 3}
+      propertyPath: DestroyIsMain
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 029cdeef26027ef4a8f2dd74900465cf, type: 3}
 --- !u!1 &2046837322597574649 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1293268614805165032, guid: 029cdeef26027ef4a8f2dd74900465cf, type: 3}
+  m_PrefabInstance: {fileID: 978775661574304785}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6556550133934684015 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6298500530529911678, guid: 029cdeef26027ef4a8f2dd74900465cf, type: 3}
+  m_PrefabInstance: {fileID: 978775661574304785}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &7490073105046332740 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 7667196436304449877, guid: 029cdeef26027ef4a8f2dd74900465cf, type: 3}
   m_PrefabInstance: {fileID: 978775661574304785}
   m_PrefabAsset: {fileID: 0}
