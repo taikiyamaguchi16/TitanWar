@@ -42,10 +42,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        if (isOffline)
             PhotonNetwork.JoinOrCreateRoom("Room", new RoomOptions(), TypedLobby.Default);
-        else
-            PhotonNetwork.JoinLobby();
     }
 
     public override void OnJoinedRoom()
