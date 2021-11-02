@@ -9,12 +9,12 @@ public class PlayerJump : MonoBehaviourPunCallbacks
     private Rigidbody PlayerRigid;//PlayerオブジェクトのRigidbobyを保管する
     public float Upspeed;　　　　//ジャンプのスピード
 
-    private bool isJump;
+    private bool isJumping;
 
     // Use this for initialization
     void Start()
     {
-        isJump = false;
+        isJumping = false;
         PlayerRigid = Player.GetComponent<Rigidbody>();
 
     }
@@ -30,7 +30,14 @@ public class PlayerJump : MonoBehaviourPunCallbacks
 
 
         //}
-
+        if (isJumping)
+        {
+            //if (Input.GetKey(KeyCode.Space))
+            //{
+            //    PlayerRigid.AddForce(transform.up * (Upspeed * 0.01f));
+            //    PlayerRigid.AddForce(transform.forward * (Upspeed * 0.01f));
+            //}
+        }
     }
 
     private void OnCollisionStay(Collision collision)
@@ -39,25 +46,34 @@ public class PlayerJump : MonoBehaviourPunCallbacks
         {
             if (collision.gameObject.tag == "Ground")
             {
-                isJump = false;
+                isJumping = false;
 
 
                 if (Input.GetKey(KeyCode.Space))
                 {
+                    isJumping = true;
                     PlayerRigid.AddForce(transform.up * Upspeed);
                     //PlayerRigid.AddForce(transform.forward * Upspeed);
+                    if (Input.GetKey(KeyCode.W))
+                    {
+                        PlayerRigid.AddForce(transform.forward * Upspeed);
+                    }
+                    if (Input.GetKey(KeyCode.S))
+                    {
+                        PlayerRigid.AddForce(-transform.forward * (Upspeed / 2));
+                    }
                 }
 
             }
-            else
-            {
-                isJump = true;
-            }
+            //else
+            //{
+            //    isJumping = true;
+            //}
         }
     }
 
     public bool GetIsJump()
     {
-        return isJump;
+        return isJumping;
     }
 }

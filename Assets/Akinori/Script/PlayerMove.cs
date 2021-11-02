@@ -66,7 +66,7 @@ public class PlayerMove : MonoBehaviourPunCallbacks
 
             //カメラとキャラクターの回転
             PlayerTransform.transform.Rotate(0, X_Rotation, 0);
-            x = Mathf.Clamp(x - Y_Rotation /** Time.deltaTime * 100.0f*/, -40, 40);
+            x = Mathf.Clamp(x - Y_Rotation /** Time.deltaTime * 100.0f*/, -60, 60);
             //CameraTransform.transform.localEulerAngles = new Vector3(x, 0, 0);
 
             cam.transform.localEulerAngles = new Vector3(x, 0, 0);
@@ -99,7 +99,7 @@ public class PlayerMove : MonoBehaviourPunCallbacks
                 }
             }
 
-            // if (!transform.GetComponent<PlayerJump>().GetIsJump())
+            //if(!transform.GetComponent<PlayerJump>().GetIsJump())
             {
                 if (Input.GetKey(KeyCode.W))
                 {

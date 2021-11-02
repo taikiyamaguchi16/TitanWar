@@ -14,7 +14,7 @@ public class FPSController : MonoBehaviour
     bool cursorLock = true;
 
     //•Ï”‚ÌéŒ¾(Šp“x‚Ì§ŒÀ—p)
-    float minX = -90f, maxX = 90f;
+    float minX = -110f, maxX = 110f;
 
     // Start is called before the first frame update
     void Start()

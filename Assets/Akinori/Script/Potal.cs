@@ -20,13 +20,15 @@ public class Potal : MonoBehaviour
         endPoint = transform.GetChild(1).gameObject;
 
         startPoint.GetComponent<Potal_S>().SetEndPos(endPoint.transform.position);
+       // startPoint.GetComponent<Potal_S>().SetIntervalTime(intervalTime);
         endPoint.GetComponent<Potal_E>().SetStartPos(startPoint.transform.position);
+       // endPoint.GetComponent<Potal_E>().SetIntervalTime(intervalTime);
     }
 
     // Update is called once per frame
     void Update()
     {
-        susTime -= Time.deltaTime;
+        //susTime -= Time.deltaTime;
         //if (susTime <= 0)
         //{
         //    Destroy(this);

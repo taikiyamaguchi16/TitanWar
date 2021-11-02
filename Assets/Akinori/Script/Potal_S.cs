@@ -23,14 +23,15 @@ public class Potal_S : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
+        Debug.Log("StartPoint");
         if (collision.transform.tag == "Player" && intervalTime <= 0)
         {
+            
             transform.parent.GetComponent<Potal>().GetEndPoint().GetComponent<Potal_E>().SetIntervalTime(transform.parent.GetComponent<Potal>().intervalTime);
             collision.transform.position = endPos;
         }
     }
-
+    
     public void SetEndPos(Vector3 _pos)
     {
         endPos = _pos;
