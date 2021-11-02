@@ -41,12 +41,12 @@ public class HandCollider : MonoBehaviour
     {
         if (firstUpdate)
         {
+            firstUpdate = false;
             foreach (var c in colliders)
             {
                 c.isTrigger = false;
                 c.enabled = detailedColliderEnable;
             }
-            firstUpdate = false;
             
             simpleCollider.isTrigger = false;
             simpleCollider.enabled = simpleColliderEnable;
