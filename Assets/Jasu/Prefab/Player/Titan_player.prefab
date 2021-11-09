@@ -57,6 +57,7 @@ ConfigurableJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333316164323034770}
   m_ConnectedBody: {fileID: 8238581062436410904}
+  m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 0
@@ -172,7 +173,7 @@ GameObject:
   - component: {fileID: 2224530330477168511}
   - component: {fileID: 4852144924057985202}
   m_Layer: 8
-  m_Name: Titan_Player
+  m_Name: Titan_player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -327,6 +328,7 @@ ConfigurableJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6301410209508776804}
   m_ConnectedBody: {fileID: 7127339800495423970}
+  m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 0
@@ -1492,6 +1494,30 @@ PrefabInstance:
     - target: {fileID: 2513425698603986251, guid: 14251194d93eec247bb154b5863280d3, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581582717737866850, guid: 14251194d93eec247bb154b5863280d3, type: 3}
+      propertyPath: m_SynchronizeLayers.Array.data[0].SynchronizeType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581582717737866850, guid: 14251194d93eec247bb154b5863280d3, type: 3}
+      propertyPath: m_SynchronizeLayers.Array.data[1].SynchronizeType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581582717737866850, guid: 14251194d93eec247bb154b5863280d3, type: 3}
+      propertyPath: m_SynchronizeLayers.Array.data[2].SynchronizeType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581582717737866850, guid: 14251194d93eec247bb154b5863280d3, type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[0].SynchronizeType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581582717737866850, guid: 14251194d93eec247bb154b5863280d3, type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[1].SynchronizeType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581582717737866850, guid: 14251194d93eec247bb154b5863280d3, type: 3}
+      propertyPath: m_SynchronizeParameters.Array.data[2].SynchronizeType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7720160786246296242, guid: 14251194d93eec247bb154b5863280d3, type: 3}
       propertyPath: m_RootOrder
