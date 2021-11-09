@@ -10,10 +10,14 @@ public class PlayerJump : MonoBehaviourPunCallbacks
     //接地判定
     public bool OnGround { get; set; }//追記
 
+    private bool isJetJumped { get; set; }
+    private bool jetJumpEnable { get; set; }
     //追記
     private void Start()
     {
         OnGround = false;
+        isJetJumped = false;
+        jetJumpEnable = false;
     }
 
     //RigitbodyをいじるためFixedUpdateで処理を行う
@@ -23,70 +27,12 @@ public class PlayerJump : MonoBehaviourPunCallbacks
         if (Input.GetKey(KeyCode.Space) && OnGround)//追記
         {
             Debug.Log("Jump");
-            rb.velocity = transform.up * JumpPower;
-          //  rb.AddForce(transform.up * JumpPower);
+            //  rb.velocity = transform.up * JumpPower;
+            rb.AddForce(transform.up * JumpPower);
             //ジャンプした瞬間接地判定を解除
-            OnGround = false;//追記
+            OnGround = false;
+            isJetJumped = false;
         }
-    }
-
-
-
-    //public GameObject Player;
-    //private Rigidbody PlayerRigid;//PlayerオブジェクトのRigidbobyを保管する
-    //public float Upspeed;　　　　//ジャンプのスピード
-
-    //private bool isJump;
-
-    //// Use this for initialization
-    //void Start()
-    //{
-    //    isJump = false;
-    //    Player = this.gameObject;
-    //    PlayerRigid = Player.GetComponent<Rigidbody>();
-
-    //}
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-    //    //if (Input.GetKeyDown(KeyCode.Space))
-    //    //{
-    //    //    //上にジャンプする。
-    //    //    PlayerRigid.AddForce(transform.up * Upspeed);
-
-
-
-    //    //}
-
-    //}
-
-    //private void OnCollisionStay(Collision collision)
-    //{
-    //    if (photonView.IsMine)
-    //    {
-    //        if (collision.gameObject.tag == "Ground")
-    //        {
-    //            isJump = false;
-
-
-    //            if (Input.GetKey(KeyCode.Space))
-    //            {
-    //                PlayerRigid.AddForce(transform.up * Upspeed);
-    //                //this.transform.position += (this.transform.up * Time.deltaTime);
-    //                //PlayerRigid.AddForce(transform.forward * Upspeed);
-    //            }
-
-    //        }
-    //        else
-    //        {
-    //            isJump = true;
-    //        }
-    //    }
-    //}
-
-    //public bool GetIsJump()
-    //{
-    //    return isJump;
-    //}
+        
+    }   
 }

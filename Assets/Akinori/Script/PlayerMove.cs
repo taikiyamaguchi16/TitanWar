@@ -22,6 +22,9 @@ public class PlayerMove : MonoBehaviourPunCallbacks
     GameObject cam;
     Vector3 crouchCameraPos;
     Vector3 cameraPos;
+
+    public bool isReloading;
+
     //[SerializeField]
     //float DashSpeed;
     //[SerializeField]
@@ -34,14 +37,8 @@ public class PlayerMove : MonoBehaviourPunCallbacks
     // Use this for initialization
     void Start()
     {
-        PlayerTransform = GetComponent<Transform>();
-        //CameraTransform = transform.Find("Main Camera").gameObject.transform;
-        //PlayerTransform = transform.parent;
-        //CameraTransform = GetComponent<Transform>();
-        
+        PlayerTransform = GetComponent<Transform>();        
         rb = Player.GetComponent<Rigidbody>();
-
-        //photonView = this.GetComponent<PhotonView>();
 
         if (photonView.IsMine)
         {
@@ -141,49 +138,6 @@ public class PlayerMove : MonoBehaviourPunCallbacks
             {
                 cam.transform.position = transform.Find("MainCameraPos").transform.position;
             }
-           
-
-            //////////////////////////////////////
-            //if (Input.GetKey(KeyCode.LeftShift))
-            //{
-            //    speed = DashSpeed;
-            //}
-            //else if (isCrouching == false)
-            //{
-            //    speed = WalkSpeed;
-            //}
-
-            //if (Input.GetKey(KeyCode.W))
-            //{
-            //    var tmp = transform.forward * speed - rb.velocity;
-            //    tmp.y = 0;
-            //    rb.AddForce(tmp);
-            //}
-            //if (Input.GetKey(KeyCode.A))
-            //{
-            //    var tmp = -transform.right * speed - rb.velocity;
-            //    tmp.y = 0;
-            //    rb.AddForce(tmp);
-            //}
-            //if (Input.GetKey(KeyCode.D))
-            //{
-            //    var tmp = transform.right * speed - rb.velocity;
-            //    tmp.y = 0;
-            //    rb.AddForce(tmp);
-            //}
-            //if (Input.GetKey(KeyCode.S))
-            //{
-            //    var tmp = -transform.forward * speed - rb.velocity;
-            //    tmp.y = 0;
-            //    rb.AddForce(tmp);
-            //}
-
-            //if (Input.GetKeyDown(KeyCode.Space))
-            //{
-            //    rb.velocity = new Vector3(rb.velocity.x, JanpSpeed, rb.velocity.z);
-            //}
-
-
             UpdateCursorLock();
         }
     }
