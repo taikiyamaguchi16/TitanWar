@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,27 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &188797168 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9028367429186011014, guid: 763dd9a6af2dbd74a9f87c8ad3389478, type: 3}
-  m_PrefabInstance: {fileID: 6666006114024113467}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &188797175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 188797168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5c13cd3509c3d640aef5891ce2243d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  simpleCollider: {fileID: 0}
-  colliders: []
-  simpleColliderEnable: 0
-  detailedColliderEnable: 1
 --- !u!1001 &412233659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -220,6 +199,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 712212285392935759, guid: 763dd9a6af2dbd74a9f87c8ad3389478, type: 3}
+      propertyPath: colorInRatios.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 712212285392935759, guid: 763dd9a6af2dbd74a9f87c8ad3389478, type: 3}
+      propertyPath: colorInRatios.Array.data[1].ratio
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 712212285392935759, guid: 763dd9a6af2dbd74a9f87c8ad3389478, type: 3}
+      propertyPath: colorInRatios.Array.data[1].color.g
+      value: 0.75281686
+      objectReference: {fileID: 0}
+    - target: {fileID: 712212285392935759, guid: 763dd9a6af2dbd74a9f87c8ad3389478, type: 3}
+      propertyPath: colorInRatios.Array.data[2].color.g
+      value: 0.050963446
+      objectReference: {fileID: 0}
     - target: {fileID: 1390013371256124270, guid: 763dd9a6af2dbd74a9f87c8ad3389478, type: 3}
       propertyPath: sceneViewId
       value: 3
@@ -276,6 +271,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3717181527555839509, guid: 763dd9a6af2dbd74a9f87c8ad3389478, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3717181527555839509, guid: 763dd9a6af2dbd74a9f87c8ad3389478, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7508538428005962791, guid: 763dd9a6af2dbd74a9f87c8ad3389478, type: 3}
+      propertyPath: DestroyIsMain
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 763dd9a6af2dbd74a9f87c8ad3389478, type: 3}
 --- !u!1 &1326849903
@@ -322,6 +329,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -450,6 +458,7 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!4 &1716928980
@@ -466,27 +475,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1736217336 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5182972379766804017, guid: 763dd9a6af2dbd74a9f87c8ad3389478, type: 3}
-  m_PrefabInstance: {fileID: 6666006114024113467}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1736217343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1736217336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5c13cd3509c3d640aef5891ce2243d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  simpleCollider: {fileID: 0}
-  colliders: []
-  simpleColliderEnable: 0
-  detailedColliderEnable: 1
 --- !u!1001 &1907088022
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -661,6 +649,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
