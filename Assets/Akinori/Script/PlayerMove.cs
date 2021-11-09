@@ -53,6 +53,8 @@ public class PlayerMove : MonoBehaviourPunCallbacks
             cam.transform.position = transform.Find("MainCameraPos").transform.position;
             cameraPos = transform.Find("MainCameraPos").transform.position;
             crouchCameraPos = transform.Find("CrouchCameraPos").transform.position;
+
+            transform.Find("WeaponFrame").transform.parent = cam.transform;
         }
     }
 
