@@ -31,6 +31,7 @@ public class BasicItemInformation : MonoBehaviour
         get => elapsedTime;
         set => elapsedTime = value;
     }
+
     [Space(10)]
 
     [SerializeField]
@@ -92,18 +93,29 @@ public class BasicItemInformation : MonoBehaviour
         get => headMagnification;
         set => headMagnification = value;
     }
-    // Start is called before the first frame update
-    void Start()
+    private float elapsedReloadTime;
+
+
+    private void Start()
     {
-        
+        elapsedReloadTime = 0f;
+    }
+    public IEnumerator FullReload()
+    {
+        //リロード時間分止める
+        yield return new WaitForSeconds(reloadTime);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SingleReload()
     {
-        
+
     }
 
+    private void Update()
+    {
+        if (bulletNum <= 0)
+            StartCoroutine(nameof(FullReload));
+    }
     //インスペクターの値の変更時に呼び出される関数
     protected virtual void OnValidate()
     {
