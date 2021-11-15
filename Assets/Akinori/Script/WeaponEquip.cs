@@ -31,6 +31,7 @@ public class WeaponEquip : MonoBehaviourPunCallbacks
         if (collision.gameObject.tag == "Player" && mode == MODE.STRAY)
         {
             photonView.RPC(nameof(RPCChangeOwned), RpcTarget.All, collision.gameObject.GetComponent<WeaponController>().weaponFrame.gameObject.GetPhotonView().ViewID);
+            
         }
         //collision.gameObject.GetPhotonView().ViewID
     }
