@@ -15,9 +15,11 @@ GameObject:
   - component: {fileID: 5867142810660820626}
   - component: {fileID: -368514383086744291}
   - component: {fileID: 5384193996831992335}
+  - component: {fileID: 4937645253212829410}
+  - component: {fileID: 2832845705464764470}
   m_Layer: 0
   m_Name: DefaultGun
-  m_TagString: Untagged
+  m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +117,7 @@ MonoBehaviour:
   rateTime: 0.18281536
   dps: 0
   elapsedTime: 0
-  bulletNum: 0
+  bulletNum: 20
   magazineSize: 0
   reloadTime: 0
   rate: 5.47
@@ -161,6 +163,31 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &4937645253212829410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5867142810848924087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc0696baf7e51d14a84a06e4d39e80ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2832845705464764470
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5867142810848924087}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.07549844, y: 0.31807214, z: 0.8322862}
+  m_Center: {x: 0.000000044703494, y: 0.02280002, z: 0.27416438}
 --- !u!1 &5867142811964868059
 GameObject:
   m_ObjectHideFlags: 0

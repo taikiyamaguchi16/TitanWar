@@ -14,22 +14,6 @@ public class DefaultGun : MonoBehaviourPunCallbacks, IPlayerAction
     [Tooltip("弾")]
     private GameObject bullet;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKey(KeyCode.Return))
-        {
-            if(photonView.IsMine)
-                InPlayerAction();
-        }
-        
-    }
 
     public  void InPlayerAction()
     {
@@ -37,8 +21,8 @@ public class DefaultGun : MonoBehaviourPunCallbacks, IPlayerAction
         if(parameter.RateTime < parameter.ElapsedTime)
         {
             photonView.RPC(nameof(Shot), RpcTarget.All);
-        }
-
+            parameter.BulletNum--;
+        }   
     }
 
     public void EndPlayerAction()
