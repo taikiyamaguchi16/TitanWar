@@ -15,11 +15,13 @@ public class TestPickUpItem : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    public void RPCPickUpItem(int _pId,int _iId)
+    public void RPCPickUpItem(int _pId, int _iId)
     {
-        if(photonView.ViewID==_pId)
-        {
-            NetworkObjContainer.NetworkObjDictionary[_iId].transform.parent = this.transform;
-        }
+
+        //NetworkObjContainer.NetworkObjDictionary[_iId].transform.parent = this.transform;
+
+        WeaponController w_c = NetworkObjContainer.NetworkObjDictionary[_pId].GetComponent<WeaponController>();
+
+        w_c.EquipWeapon(NetworkObjContainer.NetworkObjDictionary[_iId]);
     }
 }
