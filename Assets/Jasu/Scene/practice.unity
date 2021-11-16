@@ -182,6 +182,14 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4468516001884086788, guid: 029cdeef26027ef4a8f2dd74900465cf, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4468516001884086788, guid: 029cdeef26027ef4a8f2dd74900465cf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 029cdeef26027ef4a8f2dd74900465cf, type: 3}
 --- !u!1 &181229246
@@ -294,7 +302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &195269208
 Transform:
   m_ObjectHideFlags: 0

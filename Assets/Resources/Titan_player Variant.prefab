@@ -34,7 +34,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1293268614805165032, guid: 029cdeef26027ef4a8f2dd74900465cf, type: 3}
       propertyPath: m_Name
-      value: Titan_Player Variant
+      value: Titan_player Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1293268614805165033, guid: 029cdeef26027ef4a8f2dd74900465cf, type: 3}
       propertyPath: m_RootOrder

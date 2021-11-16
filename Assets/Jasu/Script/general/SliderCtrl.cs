@@ -17,6 +17,9 @@ public class SliderCtrl : MonoBehaviourPunCallbacks, IPunObservable
     public Slider slider;
 
     [SerializeField]
+    SliderValue sliderValue = null;
+
+    [SerializeField]
     List<ColorInRatio> colorInRatios = new List<ColorInRatio>();
 
     [SerializeField]
@@ -52,6 +55,10 @@ public class SliderCtrl : MonoBehaviourPunCallbacks, IPunObservable
         {
             // ’l‚©‚çƒJƒ‰[Œˆ’è
             float ratio = slider.value / slider.maxValue;
+            if (sliderValue != null)
+            {
+                ratio = sliderValue.sliderValue / sliderValue.sliderMaxValue;
+            }
 
             for(int i = 0; i < colorInRatios.Count; i++)
             {
