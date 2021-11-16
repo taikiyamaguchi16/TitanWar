@@ -113,11 +113,14 @@ public class BasicItemInformation : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        if (bulletNum <= 0)
+        if (PhotonNetwork.IsMasterClient)
         {
-            this.transform.parent = null;
-            PhotonNetwork.Destroy(photonView);
-        }  
+            if (bulletNum <= 0)
+            {
+                this.transform.parent = null;
+                PhotonNetwork.Destroy(photonView);
+            }
+        }
         //if (bulletNum <= 0)
         //    StartCoroutine(nameof(FullReload));
     }
