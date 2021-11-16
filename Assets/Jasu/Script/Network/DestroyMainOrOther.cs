@@ -7,14 +7,11 @@ using Photon.Realtime;
 public class DestroyMainOrOther : MonoBehaviourPunCallbacks
 {
     [SerializeField]
-    bool DestroyIsMain = false;
-
-    [SerializeField]
-    bool DestroyIsOther = false;
+    bool isMain = false;
 
     private void Awake()
     {
-        if ((photonView.IsMine && DestroyIsMain) || (!photonView.IsMine && DestroyIsOther))
+        if ((!photonView.IsMine && isMain) || (photonView.IsMine && !isMain))
         {
             Destroy(this.gameObject);
         }
