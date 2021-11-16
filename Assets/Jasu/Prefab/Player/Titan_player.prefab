@@ -609,6 +609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpMax: 100
+  materialBlink: {fileID: 4132105922554073449}
 --- !u!114 &4132105922554073449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1534,7 +1535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3408108788723387371, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3992763525354918416, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
       propertyPath: m_Layer
@@ -1686,7 +1687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8817492931998606602, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8933940650917174210, guid: c05527ceabd0114409355e4ded5d3442, type: 3}
       propertyPath: m_Enabled

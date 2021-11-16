@@ -9,6 +9,9 @@ public class TitanStatus : SliderValue
 
     float hp;
 
+    [SerializeField]
+    MaterialBlink materialBlink;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,7 @@ public class TitanStatus : SliderValue
         if(other.gameObject.tag == "PlayerAttack")
         {
             hp -= other.gameObject.GetComponent<AttackManager>().AttackPower;
+            materialBlink.BlinkStart();
         }
     }
 }
