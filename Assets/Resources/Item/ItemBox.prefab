@@ -111,12 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOnline: 1
   m_interval: 3
-  m_objItem:
-  - {fileID: 3714508253544369246, guid: 8278b848b4f79f64bab39377f69dc74b, type: 3}
-  - {fileID: 3714508253544369246, guid: 8278b848b4f79f64bab39377f69dc74b, type: 3}
-  - {fileID: 3714508253544369246, guid: 8278b848b4f79f64bab39377f69dc74b, type: 3}
-  - {fileID: 3714508253544369246, guid: 8278b848b4f79f64bab39377f69dc74b, type: 3}
-  index: 0
+  respawnItem: {fileID: 0}
   popRate:
   - 70
   - 20
@@ -131,6 +126,105 @@ MonoBehaviour:
   superItem:
   - {fileID: 0}
   - {fileID: 0}
+  normalRareTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 20
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 30
+      value: 20
+      inSlope: 0.01145427
+      outSlope: 0.01145427
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 100
+      value: 20.229086
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  RareTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 20.2331
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 20
+      value: 20.20807
+      inSlope: -0.0010012054
+      outSlope: -0.0010012054
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 100
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  superRareTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.011184822
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 99.612526
+      value: 0.44365647
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!54 &1711901182813962760
 Rigidbody:
   m_ObjectHideFlags: 0

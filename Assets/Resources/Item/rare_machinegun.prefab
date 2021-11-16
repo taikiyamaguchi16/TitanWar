@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myWeight: 0
+  weaponNum: 0
   enumRate: 0
 --- !u!54 &2416995675273183051
 Rigidbody:
