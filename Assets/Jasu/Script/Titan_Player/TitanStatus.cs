@@ -7,7 +7,8 @@ public class TitanStatus : SliderValue
     [SerializeField]
     float hpMax = 100f;
 
-    float hp;
+    [SerializeField]
+    float hp = 0;
 
     [SerializeField]
     MaterialBlink materialBlink;
@@ -35,7 +36,7 @@ public class TitanStatus : SliderValue
             }
             else
             {
-                hp--;
+                hp -= 10f;
             }
         }
     }
@@ -50,7 +51,7 @@ public class TitanStatus : SliderValue
             }
             else
             {
-                hp--;
+                hp -= 10;
             }
             
             materialBlink.BlinkStart();

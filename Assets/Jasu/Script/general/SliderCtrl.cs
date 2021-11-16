@@ -54,6 +54,8 @@ public class SliderCtrl : MonoBehaviourPunCallbacks, IPunObservable
         if (photonView.IsMine)
         {
             // ’l‚©‚çƒJƒ‰[Œˆ’è
+            slider.value = sliderValue.sliderValue;
+            slider.maxValue = sliderValue.sliderMaxValue;
             float ratio = slider.value / slider.maxValue;
             if (sliderValue != null)
             {
