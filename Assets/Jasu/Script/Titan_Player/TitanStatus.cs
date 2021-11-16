@@ -21,4 +21,12 @@ public class TitanStatus : SliderValue
     {
         sliderValue = hp;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "PlayerAttack")
+        {
+            hp -= other.gameObject.GetComponent<AttackManager>().AttackPower;
+        }
+    }
 }
