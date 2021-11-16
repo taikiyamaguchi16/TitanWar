@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class TitanStatus : SliderValue
 {
@@ -36,7 +38,7 @@ public class TitanStatus : SliderValue
             }
             else
             {
-                hp -= 10f;
+                photonView.RPC(nameof(RPCDamage), RpcTarget.All);
             }
         }
     }
@@ -51,10 +53,19 @@ public class TitanStatus : SliderValue
             }
             else
             {
-                hp -= 10;
+                photonView.RPC(nameof(RPCDamage), RpcTarget.All);
             }
             
             materialBlink.BlinkStart();
+        }
+    }
+
+    [PunRPC]
+    public void RPCDamage()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            hp -= 10;
         }
     }
 }
