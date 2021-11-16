@@ -29,7 +29,30 @@ public class TitanStatus : SliderValue
     {
         if(other.gameObject.tag == "PlayerAttack")
         {
-            hp -= other.gameObject.GetComponent<AttackManager>().AttackPower;
+            if (other.gameObject.GetComponent<AttackManager>() != null)
+            {
+                hp -= other.gameObject.GetComponent<AttackManager>().AttackPower;
+            }
+            else
+            {
+                hp--;
+            }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "PlayerAttack")
+        {
+            if (collision.gameObject.GetComponent<AttackManager>() != null)
+            {
+                hp -= collision.gameObject.GetComponent<AttackManager>().AttackPower;
+            }
+            else
+            {
+                hp--;
+            }
+            
             materialBlink.BlinkStart();
         }
     }
