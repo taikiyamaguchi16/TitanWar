@@ -6,9 +6,8 @@ using Photon.Realtime;
 
 public class PlayerAction :MonoBehaviourPunCallbacks
 {
-    public GameObject Player;
-    public GameObject Camera;
-    public float speed;
+    
+
     private Transform PlayerTransform;
     private Transform CameraTransform;
     public float sensityvity = 1;
@@ -19,26 +18,26 @@ public class PlayerAction :MonoBehaviourPunCallbacks
     Rigidbody rb;
 
     bool isCrouching;
-    GameObject cam;
+    private GameObject cam;
+
     Vector3 crouchCameraPos;
     Vector3 cameraPos;
 
     public bool isReloading;
 
-    //[SerializeField]
-    //float DashSpeed;
-    //[SerializeField]
-    //float JanpSpeed;
-    //[SerializeField]
-    //float WalkSpeed;
-    //[SerializeField]
-    //float isCrouchingSpeed;
-    //[SerializeField]
-    // Use this for initialization
+    [SerializeField]
+    private PlayerJump playerJump;
+    [SerializeField]
+    private float speed;
+    [SerializeField]
+    private float sprintSpeed;
+    [SerializeField]
+    private float croushSpeed;
+
     void Start()
     {
         PlayerTransform = GetComponent<Transform>();        
-        rb = Player.GetComponent<Rigidbody>();
+        rb = this.GetComponent<Rigidbody>();
 
         if (photonView.IsMine)
         {
@@ -52,6 +51,8 @@ public class PlayerAction :MonoBehaviourPunCallbacks
             crouchCameraPos = transform.Find("CrouchCameraPos").transform.position;
 
             transform.Find("WeaponFrame").transform.parent = cam.transform;
+            transform.Find("AimPos").transform.parent = cam.transform;
+            transform.Find("WeaponInitPos").transform.parent = cam.transform;
         }
     }
 
@@ -76,17 +77,17 @@ public class PlayerAction :MonoBehaviourPunCallbacks
 
             if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) && !isCrouching)
             {
-                if (accel <= 1.5f)
+                if (accel <= sprintSpeed)
                 {                   
-                    accel = 1.5f;
+                    accel = sprintSpeed;
                 }
                 else
                 {
                     accel -= Time.deltaTime;
                 }
-                if (Input.GetKeyDown(KeyCode.C) )
+                if (Input.GetKeyDown(KeyCode.C) && playerJump.OnGround)
                 {
-                    accel = 3.0f;
+                    accel = croushSpeed;
                 }
             }
             else
@@ -129,7 +130,7 @@ public class PlayerAction :MonoBehaviourPunCallbacks
                 isCrouching = false;
             }
 
-            if (isCrouching == true)
+            if (isCrouching == true && playerJump.OnGround)
             {
                 cam.transform.position = transform.Find("CrouchCameraPos").transform.position;
 

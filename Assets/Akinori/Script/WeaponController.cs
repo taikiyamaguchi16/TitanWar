@@ -6,10 +6,24 @@ public class WeaponController : MonoBehaviour
 {
     [SerializeField]
     private GameObject weaponFrame;
+    [SerializeField]
+    private GameObject aimPos;
+    [SerializeField]
+    private GameObject weaponInitPos;
+    [SerializeField]
+    private float aimSpeed;
+
     public bool isWquip;
+
 
     private IPlayerAction equippedWeaponAction;
     // Update is called once per frame
+
+    private void Start()
+    {
+        //aimPos.transform.parent = GameObject.FindGameObjectWithTag("MainCamera").transform;
+        weaponInitPos.transform.position = weaponFrame.transform.position;
+    }
     void Update()
     {
         if (this.transform.GetChild(0) != null)
@@ -18,6 +32,7 @@ public class WeaponController : MonoBehaviour
         }
         if (isWquip)
         {
+
             if (Input.GetMouseButton(0))
             {
                 if (weaponFrame.transform.childCount > 0)
@@ -28,6 +43,14 @@ public class WeaponController : MonoBehaviour
             if (Input.GetMouseButton(1))
             {
                 //print("‰Eƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é");
+
+                weaponFrame.transform.position = Vector3.Slerp(weaponFrame.transform.position, aimPos.transform.position, aimSpeed);
+            }
+            else
+            {
+
+                weaponFrame.transform.position = Vector3.Slerp(weaponFrame.transform.position, weaponInitPos.transform.position,aimSpeed);
+
             }
         }
         if (Input.GetMouseButton(2))
