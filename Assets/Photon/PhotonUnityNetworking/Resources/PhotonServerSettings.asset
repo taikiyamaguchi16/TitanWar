@@ -41,6 +41,8 @@ MonoBehaviour:
   - RespawnSpaceship
   - PunSetName
   - Shot
+  - RPCChangeOwned
+  - RPCPickUpItem
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
