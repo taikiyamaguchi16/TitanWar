@@ -20,8 +20,10 @@ public class WeaponController : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                //weaponFrame.transform.GetChild(0).GetComponent<IPlayerAction>().InPlayerAction();
-                equippedWeaponAction.InPlayerAction();
+                if (weaponFrame.transform.childCount > 0)
+                {
+                    equippedWeaponAction.InPlayerAction();
+                }
             }
             if (Input.GetMouseButton(1))
             {
@@ -32,13 +34,20 @@ public class WeaponController : MonoBehaviour
         {
             //print("’†ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é");
         }
+        if (weaponFrame.transform.childCount > 0)
+        {
+            weaponFrame.transform.GetChild(0).transform.localPosition = Vector3.zero;
+            weaponFrame.transform.GetChild(0).transform.localEulerAngles = Vector3.zero;
+        }
 
-        
     }
 
     public void EquipWeapon(GameObject _weapon)
     {
         _weapon.transform.parent = weaponFrame.transform;
+
+        //_weapon.transform.position = Vector3.zero;
+        //_weapon.transform.eulerAngles = Vector3.zero;
 
         equippedWeaponAction = _weapon.GetComponent<IPlayerAction>();
     }

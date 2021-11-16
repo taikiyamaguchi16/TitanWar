@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public interface IPlayerAction
 {
@@ -8,7 +9,7 @@ public interface IPlayerAction
 
     void EndPlayerAction();
 }
-public class BasicItemInformation : MonoBehaviour
+public class BasicItemInformation : MonoBehaviourPunCallbacks
 {
     [Header("確認用パラメーター")]
     [SerializeField, ReadOnly]
@@ -51,7 +52,6 @@ public class BasicItemInformation : MonoBehaviour
         get => magazineSize;
         set => magazineSize = value;
     }
-
 
     [SerializeField]
     [Tooltip("リロードの時間")]
@@ -114,7 +114,12 @@ public class BasicItemInformation : MonoBehaviour
     private void Update()
     {
         if (bulletNum <= 0)
-            StartCoroutine(nameof(FullReload));
+        {
+            this.transform.parent = null;
+            PhotonNetwork.Destroy(photonView);
+        }  
+        //if (bulletNum <= 0)
+        //    StartCoroutine(nameof(FullReload));
     }
     //インスペクターの値の変更時に呼び出される関数
     protected virtual void OnValidate()

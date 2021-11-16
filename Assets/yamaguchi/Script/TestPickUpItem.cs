@@ -23,5 +23,6 @@ public class TestPickUpItem : MonoBehaviourPunCallbacks
         WeaponController w_c = NetworkObjContainer.NetworkObjDictionary[_pId].GetComponent<WeaponController>();
 
         w_c.EquipWeapon(NetworkObjContainer.NetworkObjDictionary[_iId]);
+        NetworkObjContainer.NetworkObjDictionary[_iId].tag = "Player";
     }
 }
