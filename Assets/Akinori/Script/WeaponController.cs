@@ -44,12 +44,15 @@ public class WeaponController : MonoBehaviour
 
     public void EquipWeapon(GameObject _weapon)
     {
-        _weapon.transform.parent = weaponFrame.transform;
+        if (weaponFrame.transform.childCount == 0)
+        {
+            _weapon.transform.parent = weaponFrame.transform;
 
-        //_weapon.transform.position = Vector3.zero;
-        //_weapon.transform.eulerAngles = Vector3.zero;
+            //_weapon.transform.position = Vector3.zero;
+            //_weapon.transform.eulerAngles = Vector3.zero;
 
-        equippedWeaponAction = _weapon.GetComponent<IPlayerAction>();
+            equippedWeaponAction = _weapon.GetComponent<IPlayerAction>();
+        }
     }
 }
 //RpcShot
