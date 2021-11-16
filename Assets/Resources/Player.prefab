@@ -637,7 +637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6685451774579451120}
   JumpPower: 180
-  JetJumpTime: 1.5
+  JetJumpTime: 0.7
   jumpState: 0
 --- !u!114 &827277220
 MonoBehaviour:
