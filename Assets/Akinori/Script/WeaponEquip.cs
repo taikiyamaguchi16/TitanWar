@@ -26,27 +26,27 @@ public class WeaponEquip : MonoBehaviourPunCallbacks
         
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player" && mode == MODE.STRAY)
-        {
-            photonView.RPC(nameof(RPCChangeOwned), RpcTarget.All, collision.gameObject.GetComponent<WeaponController>().weaponFrame.gameObject.GetPhotonView().ViewID);
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Player" && mode == MODE.STRAY)
+    //    {
+    //        photonView.RPC(nameof(RPCChangeOwned), RpcTarget.All, collision.gameObject.GetComponent<WeaponController>().weaponFrame.gameObject.GetPhotonView().ViewID);
             
-        }
-        //collision.gameObject.GetPhotonView().ViewID
-    }
+    //    }
+    //    //collision.gameObject.GetPhotonView().ViewID
+    //}
 
-    [PunRPC]
-    private void RPCChangeOwned(GameObject _player)
-    {
-        mode = MODE.OWNED;
-        foreach (Transform child in _player.GetComponent<WeaponController>().weaponFrame.transform)
-        {
-            Destroy(child.gameObject);
-        }
-        this.transform.parent = _player.GetComponent<WeaponController>().weaponFrame.transform;
+    //[PunRPC]
+    //private void RPCChangeOwned(GameObject _player)
+    //{
+    //    mode = MODE.OWNED;
+    //    foreach (Transform child in _player.GetComponent<WeaponController>().weaponFrame.transform)
+    //    {
+    //        Destroy(child.gameObject);
+    //    }
+    //    this.transform.parent = _player.GetComponent<WeaponController>().weaponFrame.transform;
 
-    }
+    //}
 
     
 }

@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    public GameObject weaponFrame;
+    [SerializeField]
+    private GameObject weaponFrame;
     public bool isWquip;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
+    private IPlayerAction equippedWeaponAction;
     // Update is called once per frame
     void Update()
     {
@@ -23,9 +20,8 @@ public class WeaponController : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                //print("ç∂É{É^ÉìÇ™âüÇ≥ÇÍÇƒÇ¢ÇÈ");
-                weaponFrame.transform.GetChild(0).GetComponent<IPlayerAction>().InPlayerAction();
-                // GetComponent<IPlayerAction>().InPlayerAction();
+                //weaponFrame.transform.GetChild(0).GetComponent<IPlayerAction>().InPlayerAction();
+                equippedWeaponAction.InPlayerAction();
             }
             if (Input.GetMouseButton(1))
             {
@@ -38,6 +34,13 @@ public class WeaponController : MonoBehaviour
         }
 
         
+    }
+
+    public void EquipWeapon(GameObject _weapon)
+    {
+        _weapon.transform.parent = weaponFrame.transform;
+
+        equippedWeaponAction = _weapon.GetComponent<IPlayerAction>();
     }
 }
 //RpcShot
