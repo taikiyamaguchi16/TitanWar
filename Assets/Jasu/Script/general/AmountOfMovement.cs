@@ -18,5 +18,6 @@ public class AmountOfMovement : MonoBehaviour
     void Update()
     {
         amountOfMovementVec = transform.position - oldPos;
+        oldPos = transform.position;
     }
 }

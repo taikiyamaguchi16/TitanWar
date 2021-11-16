@@ -8,13 +8,23 @@ public class TitanPunch : MonoBehaviour
     AttackManager attackManagerL;
 
     [SerializeField]
+    AmountOfMovement amountOfMovementL;
+
+    [SerializeField]
     AttackManager attackManagerR;
+
+    [SerializeField]
+    AmountOfMovement amountOfMovementR;
+
+    [SerializeField]
+    float punchAmount = 1f;
 
     // Update is called once per frame
     void Update()
     {
         if(OVRInput.Get(OVRInput.RawButton.LIndexTrigger) &&
-                OVRInput.Get(OVRInput.RawButton.LHandTrigger))
+                OVRInput.Get(OVRInput.RawButton.LHandTrigger) &&
+                amountOfMovementL.amountOfMovementVec.magnitude >= punchAmount)
         {
             attackManagerL.AttackActive(true);
         }
@@ -24,7 +34,8 @@ public class TitanPunch : MonoBehaviour
         }
 
         if (OVRInput.Get(OVRInput.RawButton.RIndexTrigger) &&
-                OVRInput.Get(OVRInput.RawButton.RHandTrigger))
+                OVRInput.Get(OVRInput.RawButton.RHandTrigger) &&
+                amountOfMovementR.amountOfMovementVec.magnitude >= punchAmount)
         {
             attackManagerR.AttackActive(true);
         }
