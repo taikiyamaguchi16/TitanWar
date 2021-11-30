@@ -247,6 +247,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2223985291551939068, guid: 029cdeef26027ef4a8f2dd74900465cf, type: 3}
+      propertyPath: sceneViewId
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2224530330477168511, guid: 029cdeef26027ef4a8f2dd74900465cf, type: 3}
       propertyPath: sceneViewId
       value: 1
@@ -258,6 +262,10 @@ PrefabInstance:
     - target: {fileID: 4468516001884086788, guid: 029cdeef26027ef4a8f2dd74900465cf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7134999769392535304, guid: 029cdeef26027ef4a8f2dd74900465cf, type: 3}
+      propertyPath: isMain
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7857601494573671076, guid: 029cdeef26027ef4a8f2dd74900465cf, type: 3}
       propertyPath: punchAmount
@@ -296,6 +304,10 @@ PrefabInstance:
     - target: {fileID: 712212285392935759, guid: 763dd9a6af2dbd74a9f87c8ad3389478, type: 3}
       propertyPath: colorInRatios.Array.data[2].color.g
       value: 0.050963446
+      objectReference: {fileID: 0}
+    - target: {fileID: 1389467763366079981, guid: 763dd9a6af2dbd74a9f87c8ad3389478, type: 3}
+      propertyPath: sceneViewId
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1390013371256124270, guid: 763dd9a6af2dbd74a9f87c8ad3389478, type: 3}
       propertyPath: sceneViewId
