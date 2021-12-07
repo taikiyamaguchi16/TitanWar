@@ -17,9 +17,6 @@ public class SliderCtrl : MonoBehaviourPunCallbacks, IPunObservable
     public Slider slider;
 
     [SerializeField]
-    SliderValue sliderValue = null;
-
-    [SerializeField]
     List<ColorInRatio> colorInRatios = new List<ColorInRatio>();
 
     [SerializeField]
@@ -31,19 +28,16 @@ public class SliderCtrl : MonoBehaviourPunCallbacks, IPunObservable
     // Start is called before the first frame update
     void Start()
     {
-        if (photonView.IsMine)
+        // ソート
+        for (int i = 0; i < colorInRatios.Count; i++)
         {
-            // ソート
-            for (int i = 0; i < colorInRatios.Count; i++)
+            for (int j = i + 1; j < colorInRatios.Count; j++)
             {
-                for (int j = i + 1; j < colorInRatios.Count; j++)
+                if (colorInRatios[i].ratio < colorInRatios[j].ratio)
                 {
-                    if (colorInRatios[i].ratio < colorInRatios[j].ratio)
-                    {
-                        ColorInRatio tmp = colorInRatios[i];
-                        colorInRatios[i] = colorInRatios[j];
-                        colorInRatios[j] = tmp;
-                    }
+                    ColorInRatio tmp = colorInRatios[i];
+                    colorInRatios[i] = colorInRatios[j];
+                    colorInRatios[j] = tmp;
                 }
             }
         }
@@ -51,37 +45,28 @@ public class SliderCtrl : MonoBehaviourPunCallbacks, IPunObservable
 
     private void LateUpdate()
     {
-        if (photonView.IsMine)
-        {
-            // 値からカラー決定
-            slider.value = sliderValue.sliderValue;
-            slider.maxValue = sliderValue.sliderMaxValue;
-            float ratio = slider.value / slider.maxValue;
-            if (sliderValue != null)
-            {
-                ratio = sliderValue.sliderValue / sliderValue.sliderMaxValue;
-            }
+        // 値からカラー決定
+        float ratio = slider.value / slider.maxValue;
 
-            for(int i = 0; i < colorInRatios.Count; i++)
+        for (int i = 0; i < colorInRatios.Count; i++)
+        {
+            if (ratio <= colorInRatios[i].ratio)
             {
-                if (ratio <= colorInRatios[i].ratio)
+                if (colorGradation)
                 {
-                    if (colorGradation)
-                    {
-                        if(i == colorInRatios.Count - 1)
-                        {
-                            fillImage.color = colorInRatios[i].color;
-                        }
-                        else
-                        {
-                            fillImage.color = Color.Lerp(colorInRatios[i + 1].color, colorInRatios[i].color,
-                                (ratio - colorInRatios[i + 1].ratio) / (colorInRatios[i].ratio - colorInRatios[i + 1].ratio));
-                        }
-                    }
-                    else
+                    if (i == colorInRatios.Count - 1)
                     {
                         fillImage.color = colorInRatios[i].color;
                     }
+                    else
+                    {
+                        fillImage.color = Color.Lerp(colorInRatios[i + 1].color, colorInRatios[i].color,
+                            (ratio - colorInRatios[i + 1].ratio) / (colorInRatios[i].ratio - colorInRatios[i + 1].ratio));
+                    }
+                }
+                else
+                {
+                    fillImage.color = colorInRatios[i].color;
                 }
             }
         }
