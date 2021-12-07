@@ -33,15 +33,25 @@ public class BasicItemInformation : MonoBehaviourPunCallbacks
         set => elapsedTime = value;
     }
 
+    public bool isReloadNow;
     [Space(10)]
 
     [SerializeField]
-    [Tooltip("弾数")]
+    [Tooltip("現在の弾数")]
     private int bulletNum;
     public int BulletNum
     {
         get => bulletNum;
         set => bulletNum = value;
+    }
+
+    [SerializeField]
+    [Tooltip("MAX弾数")]
+    private int maxBulletNum;
+    public int MaxBulletNum
+    {
+        get => maxBulletNum;
+        set => maxBulletNum = value;
     }
 
     [SerializeField]
@@ -99,11 +109,37 @@ public class BasicItemInformation : MonoBehaviourPunCallbacks
     private void Start()
     {
         elapsedReloadTime = 0f;
+
+        bulletNum = magazineSize;
+        isReloadNow = false;
     }
     public IEnumerator FullReload()
     {
+        isReloadNow = true;
         //リロード時間分止める
         yield return new WaitForSeconds(reloadTime);
+        if (maxBulletNum > 0)
+        {
+            //補充する分の球数
+            int replenishmentNum = magazineSize - bulletNum;
+            if (replenishmentNum < maxBulletNum)
+            {
+                //リロード分の球数を減らす
+                maxBulletNum -= replenishmentNum;
+
+                //現在の弾数をマガジンサイズに
+                bulletNum = magazineSize;
+            }
+            else
+            {
+                bulletNum += maxBulletNum;
+                maxBulletNum = 0;    
+            }
+        }
+
+        isReloadNow = false;
+        yield  break;
+        
     }
 
     public void SingleReload()
@@ -115,14 +151,26 @@ public class BasicItemInformation : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            if (bulletNum <= 0)
+            if (maxBulletNum <= 0)
             {
                 this.transform.parent = null;
                 PhotonNetwork.Destroy(photonView);
             }
         }
-        //if (bulletNum <= 0)
-        //    StartCoroutine(nameof(FullReload));
+
+        if (!isReloadNow)
+        {
+            if (bulletNum <= 0)
+            {
+                Debug.Log("弾切れです");
+                StartCoroutine(nameof(FullReload));
+            }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                StartCoroutine(nameof(FullReload));
+            }
+        }
     }
     //インスペクターの値の変更時に呼び出される関数
     protected virtual void OnValidate()

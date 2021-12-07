@@ -299,6 +299,8 @@ namespace Photon.Pun
                 {
                     if (view.isRuntimeInstantiated)
                     {
+                        //独自のネットワーク用コンテナからオブジェクトを削除
+                        NetworkObjContainer.NetworkObjDictionary.Remove(view.ViewID);
                         instantiatedGos.Add(view.gameObject); // HashSet keeps each object only once
                     }
                     // For non-instantiated objects (scene objects) - reset the view
@@ -852,7 +854,7 @@ namespace Photon.Pun
             {
                 Debug.Log("Network destroy Instantiated GO: " + go.name);
             }
-            
+
             foundPVs.Clear();           // as foundPVs is re-used, clean it to avoid lingering references
 
             go.SetActive(false);        // PUN 2 disables objects before the return to the pool
@@ -2371,7 +2373,7 @@ namespace Photon.Pun
                             {
                                 Player prevOwner = requestedView.Owner;
 
-                                requestedView.OwnerActorNr= newOwnerId;
+                                requestedView.OwnerActorNr = newOwnerId;
                                 requestedView.ControllerActorNr = newOwnerId;
 
                                 if (PhotonNetwork.OnOwnershipTransferedEv != null)
@@ -2415,7 +2417,7 @@ namespace Photon.Pun
                             Player prevOwner = view.Owner;
                             Player newOwner = CurrentRoom.GetPlayer(newOwnerId, true);
 
-                            view.OwnerActorNr= newOwnerId;
+                            view.OwnerActorNr = newOwnerId;
                             view.ControllerActorNr = newOwnerId;
 
                             reusablePVHashset.Add(view);

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PhotonServerSettings
   m_EditorClassIdentifier: 
   AppSettings:
-    AppIdRealtime: dd7bffba-9bd7-4798-ad2f-24a5a2f31cc8
+    AppIdRealtime: 355c5793-93e2-4d40-a846-ed566f063d23
     AppIdFusion: 
     AppIdChat: 
     AppIdVoice: 
@@ -28,9 +28,9 @@ MonoBehaviour:
     AuthMode: 0
     EnableLobbyStatistics: 0
     NetworkLogging: 1
-  DevRegion: jp
+  DevRegion: 
   PunLogging: 0
-  EnableSupportLogger: 1
+  EnableSupportLogger: 0
   RunInBackground: 1
   StartInOfflineMode: 0
   RpcList:
@@ -44,6 +44,50 @@ MonoBehaviour:
   - RPCChangeOwned
   - RPCPickUpItem
   - RPCDamage
+  - CallStartGameOnline
+  - Dump
+  - PickUp
+  - RPCActualLapCount
+  - RPCAddBomb
+  - RPCBatteryAction
+  - RPCClearCurrentGameInGame
+  - RPCDealDamage
+  - RPCDealDamageToPlayer
+  - RPCDestroyBattery
+  - RPCEndRecoverZenmaiPower
+  - RPCGoal
+  - RPCInstantiateBombLocal
+  - RPCInstantiateDirtSplash
+  - RPCLapCount
+  - RPCLocalInstantiate
+  - RPCLocalInstantiateWithVelocity
+  - RPCMultiplyRotation
+  - RPCPlaySmokeEfect
+  - RPCRecoverZenmaiPower
+  - RPCReleaseBattery
+  - RPCRepairMonitor
+  - RPCSetBatteryLevel
+  - RPCSetButtonState
+  - RPCSetOthersTexture
+  - RPCSetOwnBattery
+  - RPCSetRunning
+  - RPCShotBullet
+  - RPCShotLevelUp
+  - RPCShotPlayerBullet
+  - RPCSlipEnd
+  - RPCSlipStart
+  - RPCSpawonBattery
+  - RPCSpownerBatteryAction
+  - RPCStolenOwnBattery
+  - RPCSwitch
+  - RPCSwitchGameInGameScene
+  - RPCWhenGoal
+  - ZenmaiDecreaseStart
+  - RPCSetActive
+  - RPCCompleteCooled
+  - RPCStartBlink
+  - StartBlink
+  - RPCSetEnabledShootingCamera
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
