@@ -59,7 +59,6 @@ public class ItemBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //
         m_time += Time.deltaTime;
         if (m_isRespown && !m_isHitOther)
         {
@@ -75,38 +74,28 @@ public class ItemBox : MonoBehaviour
                 m_isRespown = false;
                 framecount = 0;
             }
-
         }
 
-        //ボーナスタイム
-        if (m_time % 60 > 30 && m_time % 60 < 60)
+        if (respawnItem != null)
         {
-
-        }
-
-        //子供がいなければ創る準備
-        //int childCount = this.gameObject.transform.childCount;
-        //if (childCount == 0 && !m_isHitOther)
-        //{
-        //    m_isRespown = true;
-        //}[
-
-        if (!m_isRespown)
-        {
-            framecount += Time.deltaTime;
-            int sec = (int)framecount % 60;
-            if (sec> m_interval)
+            if (respawnItem.transform.parent)//アイテムの所有者がplayerになったら次のアイテムの生成開始
             {
-                m_isRespown = true;
+                this.RespownReset();
             }
         }
-
-        //if (respawnItem == null && !m_isHitOther)
+        //if (!m_isRespown)
         //{
-        //    m_isRespown = true;
+        //    if (respawnItem == null)
+        //    {
+        //        this.RespownReset();
+        //    }
         //}
-        
+    }
 
+    private void RespownReset() {
+        respawnItem = null;
+        m_isRespown = true;
+        m_time = 0;
     }
 
     //インデックスを設定
@@ -150,8 +139,7 @@ public class ItemBox : MonoBehaviour
                 {
                     if (PhotonNetwork.IsMasterClient)
                     {
-
-                        respawnItem = (GameObject)PhotonNetwork.InstantiateRoomObject(normalItem[idx].name, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
+                        respawnItem = (GameObject)PhotonNetwork.InstantiateRoomObject("Item/"+normalItem[idx].name, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
                         //respawnItem.transform.parent = transform;
                     }
                 }
@@ -168,7 +156,7 @@ public class ItemBox : MonoBehaviour
                 {
                     if (PhotonNetwork.IsMasterClient)
                     {
-                        respawnItem = (GameObject)PhotonNetwork.InstantiateRoomObject(rareItem[idx].name, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
+                        respawnItem = (GameObject)PhotonNetwork.InstantiateRoomObject("Item/" + rareItem[idx].name, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
                         //respawnItem.transform.parent = transform;
                     }
                 }
@@ -185,7 +173,7 @@ public class ItemBox : MonoBehaviour
                 {
                     if (PhotonNetwork.IsMasterClient)
                     {
-                        respawnItem = (GameObject)PhotonNetwork.InstantiateRoomObject(superItem[idx].name, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
+                        respawnItem = (GameObject)PhotonNetwork.InstantiateRoomObject("Item/" + superItem[idx].name, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
                         //respawnItem.transform.parent = transform;
                     }
                 }

@@ -14,6 +14,14 @@ public class DefaultGun : MonoBehaviourPunCallbacks, IPlayerAction
     [Tooltip("弾")]
     private GameObject bullet;
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            //InPlayerAction();
+            parameter.BulletNum--;
+        }
+    }
 
     public  void InPlayerAction()
     {
@@ -43,7 +51,7 @@ public class DefaultGun : MonoBehaviourPunCallbacks, IPlayerAction
         // 出現させたボールの名前を"bullet"に変更
         newBall.name = bullet.name;
         
-        parameter.ElapsedTime = 0f;
+        parameter.ElapsedTime = 0f;  
     }
   
 

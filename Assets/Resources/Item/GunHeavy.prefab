@@ -14,9 +14,11 @@ GameObject:
   - component: {fileID: 628394846786437167}
   - component: {fileID: 628394846786437160}
   - component: {fileID: 628394846786437156}
+  - component: {fileID: 46899323177613188}
+  - component: {fileID: 2351301144419554326}
   m_Layer: 0
   m_Name: GunHeavy
-  m_TagString: Untagged
+  m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,14 +30,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628394846223061327}
-  m_LocalRotation: {x: 0.000000015454312, y: -0.7071068, z: 0.000000015454312, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.94, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 628394848128582744}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!33 &628394846225960271
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -99,6 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameter: {fileID: 628394846786437160}
   bullet: {fileID: 9005742950744460340, guid: 106ce165703fa6a48b823e91dbf6c170, type: 3}
+  muzzleflash: {fileID: 1234560846197785030, guid: b0d0c969b457a74488f0cf8ce3bfc29b, type: 3}
+  shotSE: {fileID: 8300000, guid: 04de7d6329cd01948948b98ffdbd1a9a, type: 3}
 --- !u!114 &628394846786437160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,16 +115,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b0d34a7112caf4a82505c07de77844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rateTime: 1
-  dps: 12
+  rateTime: 0.1
+  dps: 120
   elapsedTime: 0
-  bulletNum: 1
-  magazineSize: 180
+  isReloadNow: 0
+  bulletNum: 20
+  maxBulletNum: 180
+  magazineSize: 20
   reloadTime: 5
-  rate: 1
+  rate: 10
   damage: 12
-  speed: 100
-  headMagnification: 0
+  speed: 5
+  headMagnification: 1
 --- !u!114 &628394846786437156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +149,31 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!65 &46899323177613188
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628394846223061327}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.07549844, y: 0.31807214, z: 0.8322862}
+  m_Center: {x: 0.000000044703494, y: 0.02280002, z: 0.27416438}
+--- !u!114 &2351301144419554326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628394846223061327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc0696baf7e51d14a84a06e4d39e80ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &628394848128582751
 GameObject:
   m_ObjectHideFlags: 0
