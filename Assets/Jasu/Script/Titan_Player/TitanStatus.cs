@@ -13,6 +13,12 @@ public class TitanStatus : SliderValue
     float hp = 0;
 
     [SerializeField]
+    float mpMax = 100f;
+
+    [SerializeField]
+    float mp = 0;
+
+    [SerializeField]
     MaterialBlink materialBlink;
 
     // Start is called before the first frame update
@@ -20,6 +26,7 @@ public class TitanStatus : SliderValue
     {
         sliderMaxValue = hpMax;
         hp = hpMax;
+        mp = mpMax;
     }
 
     // Update is called once per frame
