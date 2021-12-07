@@ -67,7 +67,8 @@ public class Item : MonoBehaviour
             Debug.Log("ƒAƒCƒeƒ€Žæ“¾");
             if (PhotonNetwork.IsConnected)
             {
-                PhotonNetwork.Destroy(gameObject);
+                transform.parent = other.transform;
+               // PhotonNetwork.Destroy(gameObject);
             }
             else
             {

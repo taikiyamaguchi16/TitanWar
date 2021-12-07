@@ -12,6 +12,8 @@ public class RevolverGun : MonoBehaviourPunCallbacks, IPlayerAction
     [SerializeField]
     [Tooltip("弾")]
     private GameObject bullet;
+    public GameObject m_muzzleFlash;
+    public AudioClip shotSE;
 
     // Start is called before the first frame update
     void Start()
@@ -32,9 +34,16 @@ public class RevolverGun : MonoBehaviourPunCallbacks, IPlayerAction
 
     public void InPlayerAction()
     {
-        if (parameter.RateTime < parameter.ElapsedTime)
+        if (parameter.BulletNum > 0 && !parameter.isReloadNow)
         {
-            photonView.RPC(nameof(Shot), RpcTarget.All);
+            if (parameter.RateTime < parameter.ElapsedTime)
+            {
+                Instantiate(m_muzzleFlash, this.transform.GetChild(0).position, this.transform.GetChild(0).rotation);
+                AudioSource.PlayClipAtPoint(shotSE, transform.position);
+                photonView.RPC(nameof(Shot), RpcTarget.AllViaServer);
+                parameter.BulletNum--;
+                parameter.ElapsedTime = 0f;
+            }
         }
     }
 
@@ -56,6 +65,6 @@ public class RevolverGun : MonoBehaviourPunCallbacks, IPlayerAction
         // 出現させたボールの名前を"bullet"に変更
         newBall.name = bullet.name;
 
-        parameter.ElapsedTime = 0f;
+        //parameter.ElapsedTime = 0f;
     }
 }
