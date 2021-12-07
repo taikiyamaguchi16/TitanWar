@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class DestroyMainOrOther : MonoBehaviourPunCallbacks
+public class DestroyIfOthers : MonoBehaviourPunCallbacks
 {
     [SerializeField]
     bool isMain = false;
