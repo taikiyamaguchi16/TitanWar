@@ -4,16 +4,6 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-[System.Serializable]
-public class SliderCtrlToName : Serialize.KeyAndValue<string, SliderCtrl>
-{
-    public SliderCtrlToName(string key, SliderCtrl value) : base(key, value) { }
-}
-
-
-[System.Serializable]
-public class SliderCtrlToNameTable : Serialize.TableBase<string, SliderCtrl, SliderCtrlToName> { }
-
 public class TitanStatus : MonoBehaviourPunCallbacks
 {
     [SerializeField]
