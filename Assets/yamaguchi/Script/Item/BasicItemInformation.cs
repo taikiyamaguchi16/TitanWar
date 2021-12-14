@@ -151,7 +151,7 @@ public class BasicItemInformation : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            if (maxBulletNum <= 0)
+            if (maxBulletNum <= 0 && bulletNum <= 0) 
             {
                 this.transform.parent = null;
                 PhotonNetwork.Destroy(photonView);
