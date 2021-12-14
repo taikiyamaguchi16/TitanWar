@@ -122,7 +122,7 @@ MonoBehaviour:
   bulletNum: 20
   maxBulletNum: 180
   magazineSize: 20
-  reloadTime: 5
+  reloadTime: 1
   rate: 10
   damage: 12
   speed: 5
