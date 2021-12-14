@@ -132,7 +132,7 @@ public class CharacterStatus : MonoBehaviourPunCallbacks
 
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
     {
-        if(photonView.Owner.ActorNumber == targetPlayer.ActorNumber)
+        if(!photonView.IsMine && photonView.Owner.ActorNumber == targetPlayer.ActorNumber)
         {
             hp = (targetPlayer.CustomProperties["HP"] is int value) ? value: 0;
         }
