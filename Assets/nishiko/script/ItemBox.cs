@@ -59,6 +59,8 @@ public class ItemBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!PhotonNetwork.InRoom) return;
+
         m_time += Time.deltaTime;
         if (m_isRespown && !m_isHitOther)
         {
