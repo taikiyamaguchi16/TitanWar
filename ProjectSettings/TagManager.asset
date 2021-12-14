@@ -8,6 +8,7 @@ TagManager:
   - Gun
   - PlayerAttack
   - TitanAttack
+  - PotalWall
   layers:
   - Default
   - TransparentFX

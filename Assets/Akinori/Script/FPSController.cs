@@ -39,7 +39,7 @@ public class FPSController : MonoBehaviour
         cam.transform.localRotation = cameraRot;
         transform.localRotation = characterRot;
 
-        Debug.Log(Application.targetFrameRate);
+       
         UpdateCursorLock();
     }
 

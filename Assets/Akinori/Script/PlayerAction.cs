@@ -6,7 +6,7 @@ using Photon.Realtime;
 
 public class PlayerAction :MonoBehaviourPunCallbacks
 {
-    
+    private PhotonTransformViewClassic ph;
 
     private Transform PlayerTransform;
     private Transform CameraTransform;
@@ -38,7 +38,7 @@ public class PlayerAction :MonoBehaviourPunCallbacks
     {
         PlayerTransform = GetComponent<Transform>();        
         rb = this.GetComponent<Rigidbody>();
-
+        ph = GetComponent<PhotonTransformViewClassic>();
         if (photonView.IsMine)
         {
             Player owner = photonView.Owner;
@@ -61,6 +61,7 @@ public class PlayerAction :MonoBehaviourPunCallbacks
     {
         if (photonView.IsMine)
         {
+            
             float X_Rotation = Input.GetAxis("Mouse X") * sensityvity;
             float Y_Rotation = Input.GetAxis("Mouse Y") * sensityvity;
 
@@ -139,6 +140,8 @@ public class PlayerAction :MonoBehaviourPunCallbacks
             {
                 cam.transform.position = transform.Find("MainCameraPos").transform.position;
             }
+
+            ph.SetSynchronizedValues(rb.velocity, 0);
             UpdateCursorLock();
         }
     }
