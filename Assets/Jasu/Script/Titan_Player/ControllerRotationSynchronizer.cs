@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ControllerRotationSynchronizer : MonoBehaviour
 {
-    [SerializeField]
-    Transform synchronizedTargetTrans = null;
+    //[SerializeField]
+    //Transform synchronizedTargetTrans = null;
 
     [SerializeField]
     Transform controllerTrans = null;

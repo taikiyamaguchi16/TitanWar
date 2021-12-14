@@ -4,41 +4,11 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class TitanStatus : MonoBehaviourPunCallbacks
+public class TitanStatus : CharacterStatus
 {
     [SerializeField]
-    SliderCtrlToNameTable uiSliderTable;
-
-    Dictionary<string, SliderCtrl> uiSliderDic = new Dictionary<string, SliderCtrl>();
-
-    [SerializeField]
-    float hpMax = 100f;
-
-    [SerializeField]
-    public float hp { get; private set; } = 0;
-
-    public void DecreaseHp(float _val)
-    {
-        hp -= _val;
-        if(hp < 0)
-        {
-            hp = 0f;
-        }
-
-        if (photonView.IsMine)
-        {
-            uiSliderDic["HP"].slider.value = hp;
-        }
-        else
-        {
-            uiSliderDic["HPforOther"].slider.value = hp;
-        }
-    }
-
-    [SerializeField]
     float mpMax = 100f;
-
-    [SerializeField]
+    
     public float mp { get; private set; } = 0;
 
     public void IncreaseMp(float _val)
@@ -78,24 +48,9 @@ public class TitanStatus : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        hp = hpMax;
-
         mp = mpMax;
 
-        uiSliderDic = uiSliderTable.GetTable();
-
-        if (photonView.IsMine)
-        {
-            uiSliderDic["HP"].slider.maxValue = hpMax;
-            uiSliderDic["HP"].slider.value = hp;
-            uiSliderDic["MP"].slider.maxValue = mpMax;
-            uiSliderDic["MP"].slider.value = mp;
-        }
-        else
-        {
-            uiSliderDic["HPforOther"].slider.maxValue = hpMax;
-            uiSliderDic["HPforOther"].slider.value = hp;
-        }
+        OnStart();
     }
 
     // Update is called once per frame
@@ -121,15 +76,7 @@ public class TitanStatus : MonoBehaviourPunCallbacks
     {
         if(other.gameObject.tag == "PlayerAttack")
         {
-            //if (other.gameObject.GetComponent<AttackManager>() != null)
-            //{
-            //    hp -= other.gameObject.GetComponent<AttackManager>().AttackPower;
-            //}
-            //else
-            //{
-            //    photonView.RPC(nameof(RPCDamage), RpcTarget.All);
-            //}
-            photonView.RPC(nameof(RPCDamage), RpcTarget.All);
+            TakeDamage(5);
             materialBlink.BlinkStart();
         }
     }
@@ -138,22 +85,8 @@ public class TitanStatus : MonoBehaviourPunCallbacks
     {
         if (collision.gameObject.tag == "PlayerAttack")
         {
-            //if (collision.gameObject.GetComponent<AttackManager>() != null)
-            //{
-            //    hp -= collision.gameObject.GetComponent<AttackManager>().AttackPower;
-            //}
-            //else
-            //{
-                
-            //}
-            photonView.RPC(nameof(RPCDamage), RpcTarget.All);
+            TakeDamage(5);
             materialBlink.BlinkStart();
         }
-    }
-
-    [PunRPC]
-    public void RPCDamage()
-    {
-        DecreaseHp(5);
     }
 }

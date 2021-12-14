@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using ExitGames.Client.Photon;
 
 [System.Serializable]
 public class SliderCtrlToName : Serialize.KeyAndValue<string, SliderCtrl>
@@ -22,53 +23,52 @@ public class CharacterStatus : MonoBehaviourPunCallbacks
 
     protected Dictionary<string, SliderCtrl> uiSliderDic = new Dictionary<string, SliderCtrl>();
 
+    ExitGames.Client.Photon.Hashtable hashtable = new ExitGames.Client.Photon.Hashtable();
+
     [SerializeField]
     protected float hpMax = 100f;
+    
+    public float hp { get; protected set; } = 0;
 
-    [SerializeField]
-    public float hp { get; private set; } = 0;
-
-    public void IncreaseHp(float _val)
+    protected void IncreaseHp(float _val)
     {
-        hp += _val;
-        if (hp > hpMax)
-        {
-            hp = hpMax;
-        }
-
         if (photonView.IsMine)
         {
+            hp += _val;
+            if (hp > hpMax)
+            {
+                hp = hpMax;
+            }
+
             uiSliderDic["HP"].slider.value = hp;
-        }
-        else
-        {
-            uiSliderDic["HPforOther"].slider.value = hp;
+            hashtable["HP"] = hp;
+            PhotonNetwork.LocalPlayer.SetCustomProperties(hashtable);
         }
     }
 
-    public void DecreaseHp(float _val)
+    protected void DecreaseHp(float _val)
     {
-        hp -= _val;
-        if (hp < 0)
-        {
-            hp = 0f;
-        }
-
         if (photonView.IsMine)
         {
+            hp -= _val;
+            if (hp < 0)
+            {
+                hp = 0f;
+            }
+
             uiSliderDic["HP"].slider.value = hp;
-        }
-        else
-        {
-            uiSliderDic["HPforOther"].slider.value = hp;
+            hashtable["HP"] = hp;
+            PhotonNetwork.LocalPlayer.SetCustomProperties(hashtable);
         }
     }
-
-    [SerializeField]
-    float recoverMp = 0.01f;
 
     // Start is called before the first frame update
     void Start()
+    {
+        OnStart();
+    }
+
+    protected void OnStart()
     {
         hp = hpMax;
 
@@ -78,6 +78,8 @@ public class CharacterStatus : MonoBehaviourPunCallbacks
         {
             uiSliderDic["HP"].slider.maxValue = hpMax;
             uiSliderDic["HP"].slider.value = hp;
+            hashtable.Add("HP", hp);
+            PhotonNetwork.LocalPlayer.SetCustomProperties(hashtable);
         }
         else
         {
@@ -94,6 +96,11 @@ public class CharacterStatus : MonoBehaviourPunCallbacks
 
     private void LateUpdate()
     {
+        OnLateUpdate();
+    }
+
+    protected void OnLateUpdate()
+    {
         if (photonView.IsMine)
         {
             uiSliderDic["HP"].slider.value = hp;
@@ -104,31 +111,39 @@ public class CharacterStatus : MonoBehaviourPunCallbacks
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void TakeDamage(float _damage)
     {
-        if (other.gameObject.tag == "PlayerAttack")
+        DecreaseHp(_damage);
+    }
+
+    //public void CallTakeDamage(float _damage)
+    //{
+    //    if (PhotonNetwork.IsMasterClient)
+    //    {
+    //        photonView.RPC(nameof(RPCDamage), RpcTarget.All, _damage);
+    //    }
+    //}
+
+    //[PunRPC]
+    //protected void RPCDamage(float _damage)
+    //{
+    //    DecreaseHp(_damage);
+    //}
+
+    public override void OnPlayerPropertiesUpdate(Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
+    {
+        if(photonView.Owner.ActorNumber == targetPlayer.ActorNumber)
         {
-            if (PhotonNetwork.IsMasterClient)
-            {
-                photonView.RPC(nameof(RPCDamage), RpcTarget.All);
-            }
+            hp = (targetPlayer.CustomProperties["HP"] is int value) ? value: 0;
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    protected void OnDestroy()
     {
-        if (collision.gameObject.tag == "PlayerAttack")
+        if (photonView.IsMine)
         {
-            if (PhotonNetwork.IsMasterClient)
-            {
-                photonView.RPC(nameof(RPCDamage), RpcTarget.All);
-            }
+            hashtable.Clear();
+            PhotonNetwork.LocalPlayer.SetCustomProperties(hashtable);
         }
-    }
-
-    [PunRPC]
-    public void RPCDamage()
-    {
-        DecreaseHp(5);
     }
 }
