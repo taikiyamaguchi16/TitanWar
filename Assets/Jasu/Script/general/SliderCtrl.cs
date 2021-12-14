@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Photon.Pun;
 
 [System.Serializable]
 public struct ColorInRatio
@@ -11,7 +10,7 @@ public struct ColorInRatio
     [Tooltip("UIカラー")] public Color color;
 }
 
-public class SliderCtrl : MonoBehaviourPunCallbacks, IPunObservable
+public class SliderCtrl : MonoBehaviour
 {
     //[SerializeField]
     public Slider slider;
@@ -72,18 +71,18 @@ public class SliderCtrl : MonoBehaviourPunCallbacks, IPunObservable
         }
     }
 
-    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.IsWriting)
-        {
-            // 自身のアバターの値を送信する
-            stream.SendNext(slider.value);
-        }
-        else
-        {
-            // 他プレイヤーのアバターの値を受信する
-            slider.value = (float)stream.ReceiveNext();
-        }
-    }
+    //void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    //{
+    //    if (stream.IsWriting)
+    //    {
+    //        // 自身のアバターの値を送信する
+    //        stream.SendNext(slider.value);
+    //    }
+    //    else
+    //    {
+    //        // 他プレイヤーのアバターの値を受信する
+    //        slider.value = (float)stream.ReceiveNext();
+    //    }
+    //}
 }
 
