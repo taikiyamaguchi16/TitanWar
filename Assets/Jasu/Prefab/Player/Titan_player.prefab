@@ -349,6 +349,8 @@ MonoBehaviour:
   laserBeamPrefab: {fileID: 4348176444590080814, guid: 7350af2a0189b9a4c83b2922e8756a0f, type: 3}
   shootTransL: {fileID: 8240346448042724326}
   shootTransR: {fileID: 7131777288292514562}
+  titanStatus: {fileID: 2072372366372772964}
+  consumption: 0.1
 --- !u!1 &1333855700061589287
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,7 +582,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 6972752414095441323}
-  sliderValue: {fileID: 2072372366372772964}
   colorInRatios:
   - ratio: 1
     color: {r: 0, g: 1, b: 1, a: 1}
@@ -932,8 +933,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af2102b9be3657d4281215376bd23aac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSliderTable:
+    list:
+    - Key: HP
+      Value: {fileID: 5075899563205790722}
+    - Key: MP
+      Value: {fileID: 2958074677170584102}
+    - Key: HPforOther
+      Value: {fileID: 321732545201631070}
   hpMax: 100
-  hp: 0
+  mpMax: 100
   materialBlink: {fileID: 4132105922554073449}
 --- !u!114 &2223985291551939068
 MonoBehaviour:
@@ -954,8 +963,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 321732545201631070}
   - {fileID: 5075899563205790722}
+  - {fileID: 2958074677170584102}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -1081,7 +1090,11 @@ PrefabInstance:
     - target: {fileID: 204204439182727264, guid: f799c8c61d0ba354d927404f964fe116, type: 3}
       propertyPath: sliderValue
       value: 
-      objectReference: {fileID: 2072372366372772964}
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604731050860673648, guid: f799c8c61d0ba354d927404f964fe116, type: 3}
+      propertyPath: m_Name
+      value: HPforOther
+      objectReference: {fileID: 0}
     - target: {fileID: 4080586101294929210, guid: f799c8c61d0ba354d927404f964fe116, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1231,7 +1244,7 @@ PrefabInstance:
     - target: {fileID: 204204439182727264, guid: f799c8c61d0ba354d927404f964fe116, type: 3}
       propertyPath: sliderValue
       value: 
-      objectReference: {fileID: 2072372366372772964}
+      objectReference: {fileID: 0}
     - target: {fileID: 491115313860791338, guid: f799c8c61d0ba354d927404f964fe116, type: 3}
       propertyPath: m_SizeDelta.x
       value: 30

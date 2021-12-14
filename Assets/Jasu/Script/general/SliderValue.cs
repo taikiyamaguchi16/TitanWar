@@ -4,9 +4,9 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class SliderValue : MonoBehaviourPunCallbacks
+public class SliderValue
 {
-    public float sliderValue { get; protected set; }
+    public float value { get; set; }
 
-    public float sliderMaxValue { get; protected set; }
+    public float valueMax { get; set; }
 }
