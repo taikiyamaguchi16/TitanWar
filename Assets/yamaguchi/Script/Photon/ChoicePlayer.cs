@@ -14,6 +14,9 @@ public class ChoicePlayer : MonoBehaviourPunCallbacks
     private GameObject spownPlayer;
     //ロビー接続時にアクティブにするため
     public GameObject choicebutton;
+
+    [SerializeField]
+    TitanGameManager titanGameManager;
     // Start is called before the first frame update
 
     private void Start()
@@ -28,6 +31,8 @@ public class ChoicePlayer : MonoBehaviourPunCallbacks
         // 上で取得した場所に、"bullet"のPrefabを出現させる
         GameObject newBall = PhotonNetwork.Instantiate(spownPlayer.name, Vector3.zero, transform.rotation);
         choicebutton.SetActive(false);
+
+        titanGameManager.whichPlayerName = "VRPlayer";
     }
 
     public void ChoicePC()
@@ -36,6 +41,8 @@ public class ChoicePlayer : MonoBehaviourPunCallbacks
         // 上で取得した場所に、"bullet"のPrefabを出現させる
         GameObject newBall = PhotonNetwork.Instantiate(spownPlayer.name, Vector3.zero, transform.rotation);
         choicebutton.SetActive(false);
+
+        titanGameManager.whichPlayerName = "PCPlayer";
     }
 
     public override void OnJoinedRoom()

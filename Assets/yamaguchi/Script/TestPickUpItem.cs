@@ -19,7 +19,6 @@ public class TestPickUpItem : MonoBehaviourPunCallbacks
     [PunRPC]
     public void RPCPickUpItem(int _pId, int _iId)
     {
-
         //NetworkObjContainer.NetworkObjDictionary[_iId].transform.parent = this.transform;
 
         WeaponController w_c = NetworkObjContainer.NetworkObjDictionary[_pId].GetComponent<WeaponController>();
