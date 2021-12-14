@@ -6,11 +6,13 @@ using Photon.Realtime;
 
 public class TestPickUpItem : MonoBehaviourPunCallbacks
 {
+    [SerializeField] UIBullet uibullet;
     public void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag=="Gun")
         {
             photonView.RPC(nameof(RPCPickUpItem), RpcTarget.All, photonView.ViewID, collision.gameObject.GetPhotonView().ViewID);
+            uibullet.BulletManagerGetNotification();
         }
     }
 
