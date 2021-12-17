@@ -30,11 +30,12 @@ public class Potal : MonoBehaviour
     {
         var parent = this.transform;
         endPos = _pos;
-
+        GameObject[] hoge = GameObject.FindGameObjectsWithTag("PotalPoint");
 
         Instantiate(startPoint, startPos, Quaternion.identity);
         Instantiate(endPoint, endPos, Quaternion.identity);
-
+        
+        
         GameObject s, e;
         s = GameObject.Find("startPoint(Clone)");
         e = GameObject.Find("endPoint(Clone)");

@@ -1,22 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PlayerStatusController : MonoBehaviour
+using Photon.Pun;
+public class PlayerStatusController : CharacterStatus
 {
-    public float Hp;
+    
     public float ultPower;
     // Start is called before the first frame update
     void Start()
     {
-        Hp = 100;
+        hp = 100;
         ultPower = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //PhotonNetwork.LocalPlayer
     }
 
 
@@ -24,7 +24,7 @@ public class PlayerStatusController : MonoBehaviour
     {
         if (collision.gameObject.tag == "TitanAttack")
         {
-            Hp -= 1;
+            TakeDamage(1);
         }
     }
 }
